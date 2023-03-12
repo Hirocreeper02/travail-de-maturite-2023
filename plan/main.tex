@@ -1,0 +1,1449 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{hyperref}
+\usepackage{rotating}
+
+\usepackage{blindtext} % Table of content
+\usepackage{titlesec} % subsubsubsection
+\usepackage{verbatim}
+
+\usepackage{graphicx}
+\usepackage{pgfgantt}
+%\graphicspath{ {./images/} }
+\usepackage{xcolor}
+\definecolor{codeColour}{RGB}{40,40,100}
+\definecolor{verylightgray}{RGB}{200,200,200}
+\definecolor{palegreen}{RGB}{121, 220, 107}
+\definecolor{palered}{RGB}{220, 107, 109}
+
+\newcommand{\ulcolor}[2][class]{\setulcolor{#1}\ul{#2}}
+\newcommand{\ulcolor}[2][var]{\setulcolor{#1}\ul{#2}}
+\newcommand{\ulcolor}[2][func]{\setulcolor{#1}\ul{#2}}
+
+\usepackage{color,soul}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+
+\newcommand{\genbox}[1]{\mybox{verylightgray}{#1}}
+\newcommand{\classbox}[1]{\mybox{palegreen}{\texttt{\textcolor{codeColour}{#1}}}}
+\newcommand{\funcbox}[1]{\mybox{palered}{\texttt{\textcolor{codeColour}{#1}}}}
+
+\newcommand{\classt}[1]{\ulcolor[class]{#1}}
+\newcommand{\funct}[1]{\func{#1}}
+\newcommand{\vart}[1]{\ulcolor[class]{#1}}
+
+%\newcommand{\class}[1]{\ulcolor[class]{\texttt{\textcolor{codeColour}{#1}}}}
+\newcommand{\class}[1]{\texttt{\textcolor{codeColour}{\ulcolor[class]{#1}}}}
+\newcommand{\func}[1]{\texttt{\textcolor{codeColour}{\ulcolor[func]{#1}}}}
+\newcommand{\var}[1]{\texttt{\textcolor{codeColour}{\ulcolor[var]{#1}}}}
+
+\def\reg{\small{\textsuperscript{\textregistered}}}
+
+\hypersetup{
+    colorlinks,
+    linkcolor={black!50!black},
+    citecolor={blue!50!black},
+    urlcolor={black!80!black}
+}
+
+\usepackage[T1]{fontenc} 
+\usepackage[french]{babel}
+
+%\usepackage{verbatim}
+
+\usepackage{geometry}
+\geometry{legalpaper, portrait, margin=1in}
+%\geometry{legalpaper, portrait, margin=1in}
+
+\title{Plan du Travail de Maturité 2023}
+\author{Emilien Cangemi et Pierre Ferrason}
+\date{2023}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}  % subsubsubsection
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}  % subsubsubsection
+\titlespacing*{\paragraph}  % subsubsubsection
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}  % subsubsubsection
+
+
+\begin{document}
+
+\setul{0.5ex}{0.3ex}
+\definecolor{class}{rgb}{0,1,0}
+\setulcolor{class}
+
+\setul{0.5ex}{0.3ex}
+\definecolor{func}{rgb}{1, 0.0, 0.0}
+\setulcolor{func}
+
+\setul{0.5ex}{0.3ex}
+\definecolor{var}{rgb}{0,0.0,1}
+\setulcolor{var}
+
+
+\maketitle
+
+\begin{center}
+    Répondant: M. Da Silva \\
+\end{center} 
+
+\\
+\color{white}
+    Hello. \\
+    How are you?\\
+    Wait you can read this?!?\\
+    Oh that changes everything...\\
+    Well...\\
+\color{black}
+
+\begin{center}
+    \begin{figure}[h]
+        \centering
+            \includegraphics[scale=0.6]{image_logo_anthropos.png}
+    \end{figure}
+\end{center}
+
+\color{white}
+    A\\B\\C\\D\\E\\F\\G\\H\\I\\J\\K\\L\\
+\color{black}
+
+\begin{center}
+    \begin{figure}[h]
+        \centering
+            \includegraphics[scale=0.2]{logo.png}
+    \end{figure}
+\end{center}
+
+\pagebreak
+
+\topskip0pt
+\vspace*{\fill}
+\begin{center}
+    \large  
+    Remerciements à Jean\\ pour son assistance dans la conceptualisation de ce document \\et son aide dans les moments où les statistiques venaient nous submerger. \\
+\end{center}
+\vspace*{\fill}
+%
+\par\noindent\rule{\textwidth}{0.4pt}
+{\footnotesize $^{1}$Le logo du jeu, au recto, a pour fond une image générée par l'intelligence artificielle Dall-E, de OpenAi. Celle-ci offre des images unique pour chaque requête et les droits d'auteurs sur les images crées sont au client (ici, nous)}
+
+
+\pagebreak
+
+\small
+
+\tableofcontents
+
+\pagebreak
+
+\Large \textbf{ Introduction} \\ \\
+\large
+
+Bienvenue dans le plan du \textbf{travail de maturité d'Emilien Cangemi et de Pierre Ferrason pour l'année 2023}. Dans ce document, nous allons planifier et décrire la création de notre projet: \textbf{un jeu vidéo de politique historique}. Celui-ci se déroulera sur une période temporelle comprise entre l'ascension des premiers empires et la fin de la révolution industrielle et sera centré autour de l'aspect de \textbf{la politique elle-même et la structure de ses régimes}. Le joueur se verra incarner une \textbf{faction politique}(précisé plus tard) et devra affronter les obstacles du temps et de la fougue de ses adversaires afin de maintenir le contrôle sur sa nation, affrontant crises et révolutions.
+
+Le jeu sera créé dans le moteur de création de jeu \textbf{\textit{Unity\reg}}, basé en \textbf{C\#}, qui est réputé pour son efficacité et sa gratuité parmi les développeurs indépendants (c'est-à-dire qui ne sont pas contraint à des exigences d'une entreprise) à travers le globe.
+
+Nous ne possédons pas de compétences liées avec ce moteur au préalable, même si nous avons déjà exploré en surface son fonctionnement et sa structure. Quant au C\#, nous ne le maîtrisons pas non plus, mais nos connaissances de programmation en python sont assez solide, et impliqueront juste de comprendre le fonctionnement de ce nouveau language.
+
+    \begin{figure}[h]
+        \centering
+            \includegraphics[scale=0.2]{image_unity_editor.png}
+            \caption{Editeur du Logiciel \textit{Unity\reg} \textit{(Ici, seul un cube est représenté)}}
+            \label{fig:x photosysteme}
+    \end{figure}
+
+Dans l'idéal, notre objectif serait de pouvoir publier notre jeu, sous forme de \textbf{prototype}, sur la plateforme de jeu \textbf{\textit{Steam\reg}}, afin je pouvoir partager notre jeu avec d'autre personnes et de pouvoir avoir leurs retours. \textit{Steam\reg} est une plateforme de jeu réputée à travers le globe pour son interface efficace et son accessibilité (la plateforme étant gratuite, mais les jeux dessus ayant un prix fixé par les développeurs des jeux). La mise en ligne d'un jeu sur cette plateforme comprend une certaine cotisation financière unique, afin de s'assurer de la sériosité des développeurs qui y publient.
+
+    \begin{figure}[h]
+        \centering
+            \includegraphics[scale=0.3]{image_steam_hoi.png}
+            \caption{Page \textit{Steam\reg} d'un Jeu Vidéo \textit{(Ici, Hearts of Iron IV\reg)}}
+            \label{fig:x photosysteme}
+    \end{figure}
+
+Le but de ce document est donc de résumer les principes de notre jeu afin d'\textbf{optimiser le travail en s'occupant de tout l'aspect conceptuel avant de commencer la programmation}. Bref, en voici le rendu, et nous vous souhaitons une agréable lecture.
+
+\pagebreak
+
+\Large \textbf{ Organisation du Travail} \\ \\
+\large
+
+%% DIAGRAMME DE GANTT %%
+
+    Voici les tâches à accomplir et leurs implications (leur planification étant sur le le Diagramme de Gantt ci-dessous):
+        \begin{itemize}
+            \item \underline{Plan:}\\
+                $\rightarrow$ L'étape du \textbf{plan} consiste en la rédaction de ce document, incluant toutes les boîtes grises de réalisation ainsi que les mécaniques de jeux détaillées en profondeur. Ce document devrait comporter toute la réflexion nécessaire au jeu, le travail d'après ne devrait faire que découler logiquement de ce travail présent, sans avoir besoin de réfléchir à l'implémentation des idées, qui serait déjà traitée.
+                \begin{enumerate}
+                    \item Rédaction des concepts généraux
+                    \item Réflexion sur la réalisation de ces concepts en code pour leur application concrète
+                \end{enumerate}
+            \item \underline{Annexes:}\\
+                $\rightarrow$ L'étape des \textbf{annexes} consiste en la complétion des annexes, partie du plan où toutes les informations spécifiques sont stockées (liste des innovations et d'autres éléments, etc...). C'est aussi ici qu'on listera les éléments d'interface graphique nécessaire au jeu, et sur desquels nous pourrons déjà commencer la création.
+               \begin{enumerate}
+                   \item Rassemblement de toutes les réflexions sur la réalisation des concepts en un seul endroit
+                   \item Lister les différents objets de classes (innovations et ressources)
+                   \item Lister les modèles 3D nécessaires, ainsi que les éléments 2D d'interface utilisateur
+               \end{enumerate} 
+            \item \underline{Code Indépendant:}\\
+                $\rightarrow$ L'étape du \textbf{code indépendant} consiste en la création d'un code contenant toutes les mécaniques de jeux intéragissant entre elles, mais dans un programme indépendant, non implémanté dans le moteur \textit{Unity\reg}. Le programme serait fonctionnel et on pourrait y effectuer diverses actions via la console, mais il ne comporterait pas encore d'interface graphique. Cette étape est particulièrement complexe car le programme sera rédigé en \textit{C#}, language de \textit{Unity\reg}, mais auquel nous ne sommes pas encore familiers
+                \begin{enumerate}
+                    \item Rédiger une première version dans un language connu, comme le python, pour tester les mécaniques elles-même
+                    \item Rédiger à nouveau mais en C\# pour se familiariser au language
+                \end{enumerate}
+            \item \underline{Implémentation en Moteur:}\\
+                $\rightarrow$ L'étape de l'\textbf{implémentation en moteur} consiste à ajouter le code indépendant au lociciel \textit{Unity\reg} et d'y connecter tous les élèments d'interface afin que le jeu devienne réellement accessible au joueur.
+                \begin{enumerate}
+                    \item Implémentation du code indépendant dans \textit{Unity\reg}
+                    \item Connexion aux différents éléments dans le moteur de jeu (faire que quand on clique à un endroit, ceci se passe, et pas cela)
+                    \item Réflexion autour des éléments essentiels du jeu non compris dans le code (paramètres, menu, invite de commandes, etc...)
+                \end{enumerate}
+            \item \underline{Elements d'Interface:}\\
+                $\rightarrow$ L'étape des \textbf{éléments d'interface} consiste en la création et l'implémentation des différents élèments d'interface souhaités pour le jeu. Ceux-ci seront modélisés dans \textit{Blender\reg}, ou créés dans d'autres logiciels.
+                \begin{enumerate}
+                    \item Création des modèles 3D
+                    \item Design des éléments 2D d'interface utilisateur
+                    \item Implémentation et mise en place d'une cohésion des éléments dans le moteur de jeu \textit{Unity\reg}
+                \end{enumerate}
+            \item \underline{Equilibrage et Tests:}\\
+                $\rightarrow$ L'étape de \textbf{l'équilibrage et des tests} consiste en le débuggage du jeu et l'équilibrage des statistiques afin de perfectionner le jeu, enlevant tous ses bugs et ses \textit{exploits} (principe abusant des mécaniques de jeu où le joueur se retrouve surpuissant par des moyens non prévu par les créateurs du jeu).
+                \begin{enumerate}
+                    \item Tester le jeu en solo
+                    \item Donner des copies du jeu à des contacts qui testeront à leur tour et rapporteront touts bugs détectés et tout exploit découvert
+                \end{enumerate}  
+            \item \underline{Finitions:}\\
+                $\rightarrow$ L'étape des \textbf{finitions} consiste en la perfection du jeu, non pas au sens du débuggage, mais dans l'ensemble du polissage des mécaniques, optimisant les différentes interfaces, implémentant de petites fonctionnalités afin de donner vie au jeu, car comme on dit: le diable réside dans les détails.
+                \begin{enumerate}
+                    \item Continuer à faire tester le jeu aux personbes
+                    \item Publication, sous forme de prototype, du jeu sur la plateforme \textit{Steam\reg} et observer les opinions des potentiels joueurs inconnus
+                    \item Implémentation des dernières fonctionnalités mineures améliorant la vie du jeu
+                \end{enumerate}
+        \end{itemize}
+        
+  \begin{center}
+    \textbf{Planification des Tâches sur le Premier Semestre}\\
+    \textcolor{white}{.}\\
+    \begin{ganttchart}[
+        vgrid={*{3}{gray, dotted}, *1{black, dashed}},
+        bar label node/.append style={
+            align=left,
+            text width=width("Aim 2 fggjhf ")}
+        ]{1}{24}
+    
+        \gantttitle{\tiny I}{1} \gantttitle{\tiny II}{1} \gantttitle{\tiny III}{1} \gantttitle{\tiny IV}{1} \gantttitle{\tiny V}{1} \gantttitle{\tiny Vc A}{1} \gantttitle{\tiny VI}{1} \gantttitle{\tiny VII}{1} \gantttitle{\tiny VIII}{1} \gantttitle{\tiny IX}{1} \gantttitle{\tiny X}{1} \gantttitle{\tiny XI}{1} \gantttitle{\tiny XII}{1} \gantttitle{\tiny Vc B}{1} \gantttitle{\tiny Vc C}{1} \gantttitle{\tiny XIII}{1} \gantttitle{\tiny XIV}{1} \gantttitle{\tiny XV}{1} \gantttitle{\tiny XVI}{1} \gantttitle{\tiny XVII}{1} \gantttitle{\tiny XVIII}{1} \gantttitle{\tiny XIX}{1} \gantttitle{\tiny XX}{1} \gantttitl{\tiny XXI}{1} \gantttitle{\tiny XXII}{1}\\
+    
+            \ganttbar{Plan}{1}{8} \\
+            \ganttbar{Annexes}{7}{12} \\
+            \ganttbar{Code sans Moteur}{9}{15} \\
+            \ganttbar{Code en Moteur}{15}{19} \\
+            \ganttbar{Elements d'Interface}{13}{20} \\
+            \ganttbar{Equilibrage et Tests}{19}{23} \\
+            \ganttbar{Finitions}{23}{24}
+    \end{ganttchart}
+    \end{center}
+
+    
+    
+    \begin{center}
+        \begin{tabular}{|c||c||c||c||c||c|}\hline 
+            Janvier & Février & Mars & Avril & Mai & Juin \\ \hline \hline
+            I : \textit{9-13} & V : \textit{6-10} & VIII : \textit{6-10} & XII : \textit{3-7} & XIV : \textit{1-5} & XIX : \textit{5-9} \\
+            II : \textit{16-20} & Vc A : \textit{13-17} & XIX : \textit{13-17} & Vc B : \textit{10-14} & XV : \textit{8-12} & XX : \textit{12-16} \\
+            III : \textit{23-27} & VI : \textit{20-24} & X  : \textit{20-24} & Vc C : \textit{17-21} & XVI : \textit{15-\underline{17}} & XXI : \textit{19-23} \\
+            IV : \textit{30-3} & VII  : \textit{27-3} & XI : \textit{27-31} & XIII : \textit{24-28} & XVII : \textit{22-26} & XXII : \textit{26-30} \\
+             & & & & XVIII : \textit{\underline{30}-2} & \\\hline
+        \end{tabular} \\
+    \end{center} 
+
+\pagebreak
+
+\section{Conceptualisation}
+    Ici nous traiterons des aspects conceptuels principaux du jeu. Nous commencerons par nous familiariser avec le principe de nation: c'est à l'intérieur de celle-ci que se déroulera la partie. Elle se comporte de cinq aspects capitaux à son fonctionnement: ses \textbf{attributs et ressources}, sa \textbf{politique}, son \textbf{économie}, les \textbf{différentes époques qui la diviseront} ainsi que les \textbf{innovations technologiques}, sans oublier les \textbf{guerres}. Chacun des ces points seront détaillés dans la section qui suit.
+        \subsection{Attributs Nationaux}
+            Comme mentionné précédemment, une nation possède une série d'attributs. Ce sont diverses statistiques et informations nécéssaires à la nation. Nous les comptons de la manière suivante:
+                \begin{itemize}
+                    \item Les \textbf{ressources}
+                    \item L'\textbf{identité nationale} du pays
+                    \item L'\textbf{organisation territoriale} à l'intérieur du pays 
+                    \item Le \textbf{développement} et les \textbf{décrets} dans les différentes zones
+                    \item La \textbf{population} totale   
+                \end{itemize}
+                
+            \tab \genbox{
+                On construit une \class{classe Nation} amenant les attributs suivants: \\
+                \tab \classbox{
+                    classe Nation: \\
+                        $\rightarrow$ \var{ressources}: liste totale des \class{ressources} du pays \\
+                        $\rightarrow$ \var{identi\'et}: \class{religion} et \class{culture} du pays \\
+                        $\rightarrow$ \var{territoire}: ensemble des \class{r\'egions} contrôlées \\
+                        $\rightarrow$ \var{population}: population totale du pays \\
+                        $\rightarrow$ \var{r\'egime}: \class{r\'egime politique} en place \\
+                        $\rightarrow$ \var{disponnibilit\'es}: liste des \class{ressources} exportables dans le pays \\
+                        $\rightarrow$ \var{argent}: ressources financières et revenus du pays \\
+                        $\rightarrow$ \var{tension}: désir de révoltes dans le pays \\
+                        $\rightarrow$ \var{stabilit\'e}: stabilité du \class{r\'egime politique} actuellement en place \\
+                        $\rightarrow$ \var{priorit\'e}: vecteur à trois dimensions désignant la priorité actuelle du  pays \\
+                        $\rightarrow$ \var{\'epoque}: \class{\'epoque} et \var{palier} innovationnel dans lequel le pays est actuellement \\
+                        $\rightarrow$ \var{d\'eveloppement}: cumulation de tous les développement des différents comtés \\
+                }}
+
+            
+            \subsubsection{Ressources}
+                Une \textbf{ressource} est un bien \textbf{produit} par un comté du pays. Son but est d'être \textbf{consommée}, c'est pourquoi elle sera soit utilisée dans son lieu de production ou \textbf{exportée} à un autre endroit du pays en suivant les méthodes commerciales détaillées plus loin. Ces ressources son divisées en catégories définissant leur utilité et leurs cibles:
+                    \begin{itemize}
+                        \item \underline{Ressource Primaire: } \\
+                            $\rightarrow$ Une \textbf{ressource primaire} est une ressource vitale, nécessaire à l'ensemble de la population, quel que soit sont niveau de richesse (détaillé plus bas). \\
+                            \emph{(Nourriture, etc...)}
+                        \item \underline{Ressource Secondaire: } \\
+                            $\rightarrow$ Une \textbf{ressource secondaire} est une ressource de luxe dont l'approvisionnement est non essentiel. Elle sera néanmoins demandée par les populations plus aisées et contribuera au commerce intérieur du pays. \\
+                            \emph{(Soie, or, bijouteries, etc...)}
+                        \item \underline{Ressource Stratégique: } \\
+                            $\rightarrow$ Une \textbf{ressource stratégique} ne sert à aucun pan de la population, mais sert à la nation elle-même, le plus souvent afin de ravitailler son armée en matériel. \\
+                            \emph{(Fer, poudre à canon, charbon, bois, etc...)}
+                    \end{itemize}
+
+                \tab \genbox{
+                    Chaque unité de ressource sera représentée par une \class{classe Ressource}: \\
+                    \tab\classbox{
+                        classe Ressource: \\
+                            $\rightarrow$ \var{type}: primaire, secondaire ou stratégique \\
+                            $\rightarrow$ \var{nom}: nom de la ressource \\
+                            $\rightarrow$ \var{origine}: \class{comt\'e} de prodcution\\
+                            $\rightarrow$ \var{raret\'e}: valeur de la ressource en question \\
+                    }
+                }
+                
+                \textit{$\rightarrow$ Cf. Annexes pour liste des ressources existantes}
+            
+                \begin{figure}[h]
+                    \centering
+                        \includegraphics[scale=0.2]{image_civ6_ressource.png}
+                        \caption{Case de Ressource dans \textit{Civilization VI\reg} \textit{(Ici, une ressource de diamant)}}
+                        \label{fig:x photosysteme}
+                \end{figure}
+
+            
+            \subsubsection{Identité Nationale}
+                L'identité nationale représente la \textbf{religion} et la \textbf{culture} adoptée par la nation. Si un comté ou une province venait à ne pas partager la même religion ou culture que la nation, elle aurait une \textbf{chance accrue de rebellion} et génèrera moins de \textbf{revenus}. Ces deux attributs se définiraient donc comme suit:
+                    \begin{itemize}
+                        \item \underline{La Religion: } \\
+                            $\rightarrow$ La \textbf{religion} est une organisation regroupant l'ensemble de ses croyants. Celle-ci peut posséder divers avantages, notant principalement celui de \textbf{légitimation du pouvoir actuellement en place}. Il est possible de convertir certaines régions d'une religion à l'autre, ceci pouvant néanmoins amener à des troubles de la stabilité.\\
+                        \item \underline{La Culture: } \\
+                            $\rightarrow$ La \textbf{culture} quant-à-elle est beaucoup plus difficile à modifier. Elle peut amener certains bonus au comtés concernés. Si une culture se sent trop \textbf{marginalisée}, celle-ci pourrait en venir à se \textbf{rebeller sous motifs de séparatisme} et essayer d'accroître son autonomie ou de gagner son \textbf{indépendance}. \\
+                    \end{itemize}
+                    
+                \tab \genbox{
+                    L'identité nationale sera donc représentée par une \class{classe Religion} et une \class{classe Culture}, qu'on regroupera dans une\class{classe Indentit\'e} : \\
+                    \tab \classbox{
+                        classe Identité: \\
+                            $\rightarrow$ \var{bonus}: \class{bonus} octroyé par la religion ou la culture\\
+                            $\rightarrow$ \var{repr\'esentation}: nombre de \class{comt\'e} faisant partie de la religion ou de la culture \\
+                            $\rightarrow$ \var{satisfaction}: plus elle est élevée, moins il y aura de désir de rebellion de ce pan de la population\\
+                            $\rightarrow$ \var{type}: religion ou culture \\ 
+                    } 
+                }
+
+                \begin{figure}[h]
+                    \centering
+                        \includegraphics[scale=0.3]{image_ck3_religion.png}
+                        \caption{Une Religion dans \textit{Crusader Kings III\reg} \textit{(Ici, une religion nordique Asatrù)}}
+                        \label{fig:x photosysteme}
+                \end{figure}
+            
+            \subsubsection{Organisation Territoriale}
+                Les territoires de la nation sont divisés en une série d'ensembles de plus en plus précis, ou le plus grand territoire englobe une série de plus petites classifications, comme suit:
+                    \begin{itemize}
+                        \item \underline{I. Régions: } \\
+                            $\rightarrow$ La \textbf{région} est la plus grande échelle de regroupement territorial. Elle est composée de \textbf{provinces} et représente les grandes divisions de la nation. C'est aux différentes régions que le gouvernement peut décider d'appliquer des \textbf{décrets}, c'est-à-dire un modificateur qui affecte l'intégralité de la région. Les régions sont toutes \textbf{sous influence} d'une des factions du pays. C'est-à-dire que la faction y possède une certaine autorité parce que la population locale adhère à ses idées.
+                        \item \underline{II. Provinces: } \\
+                            $\rightarrow$ La \textbf{province} est la seconde échelle de division territoriale. Elle est composée de comtés et est dirigée par un \textbf{gouverneur}, choisi par le gouvernement central ou par loi héréditaire. C'est à cette échelle que l'on mobilise la population, car chaque province peut se mobiliser pour lever une \textbf{armée de levée} afin de se battre, mais ceci sera détaillé plus tard.
+                        \item \underline{III. Comtés: } \\
+                            $\rightarrow$ Le \textbf{comté} est la plus petite échelle de division du territoire. C'est ici que se gère la \textbf{population}, sa \textbf{stratification}, sa \textbf{consommation} ainsi que sa \textbf{production} en ressources. Le comté possède aussi un gouverneur, qui sera appelé \textbf{comte} et qui est choisi par le \textbf{gouverneur provincial}.
+                    \end{itemize}
+                    
+                \tab \genbox{
+                    Les différentes strates d'organisation territoriale son représentées par une série de \classt{classes}: \\
+                    \tab \classbox{
+                            classe Région: \\
+                            $\rightarrow$ \var{division}: liste des \class{provinces} faisant partie de cette région\\
+                            $\rightarrow$ \var{d\'ecrets}: list des \class{d\'ecrets} mis en place dans la région \\
+                            $\rightarrow$ \var{contr\^oleur}: sous l'influence de quelle \class{faction} la région est-elle?\\  
+                    } 
+                    \color{verylightgray} .\\
+                    \tab \classbox{
+                            classe Province: \\
+                            $\rightarrow$ \var{division}: liste des \class{comt\'es} faisant partie de la province\\
+                            $\rightarrow$ \var{contr\^oleur}: \class{Personnage} gouverneur dirigeant la province\\
+                            $\rightarrow$ \var{imposition}: impôts prélevés de la \var{population}\\
+                            $\rightarrow$ \var{ProvincesVoisines}: liste des \class{provinces} voisines \\  
+                    }
+                    \color{verylightgray} .\\
+                    \tab \classbox{
+                            classe Comté: \\
+                            $\rightarrow$ \var{population}: population totale\\
+                            $\rightarrow$ \var{croissance}: croissance de la \var{population} locale\\
+                            $\rightarrow$ \var{type}: forteresse, ville ou campgane\\
+                            $\rightarrow$ \var{d\'eveloppement}: forteresse, ville ou campganeniveau de développement (\textit{entre un et cinq)}\\
+                            $\rightarrow$ \var{production}: \class{ressources} produites\\
+                            $\rightarrow$ \var{consommation}: \class{ressources} consommées\\
+                            $\rightarrow$ \var{contr\^oleur}: \class{personnage} comte gérant le comté\\
+                            $\rightarrow$ \var{imposition}: impôts prélevés de la \var{population}\\
+                    }
+                }
+
+                \begin{figure}[h]
+                    \centering
+                        \includegraphics[scale=0.3]{image_ck3_comtes.png}
+                        \caption{Division Territoriale dans \textit{Crusader Kings III\reg} \textit{(Ici, chaque case est un comté, et chaque région colorée un royaume, correspondant à une région dans le présent jeu)}}
+                        \label{fig:x photosysteme}
+                \end{figure}
+
+            \subsubsection{Développement et Décrets}
+                Le \textbf{développement} concerne les comtés. Chaque comté possède un \textbf{type} et un \textbf{niveau} de développement. Il existe trois type de développement, les \textbf{châteaux}, les \textbf{villes} et les comtés de \textbf{campagne}, ainsi que \textbf{cinq niveaux} de développement. Le développement influe sur la \textbf{stratification de la population} du comté et donc aussi sur sa \textbf{production} et sa \textbf{demande} ainsi que sa \textbf{croissance}. 
+
+                \textit{$\rightarrow$ Cf. Annexes pour liste des modificateurs de développement existantes}
+
+                \begin{figure}[h]
+                    \centering
+                        \includegraphics[scale=0.3]{schema_developpement.png}
+                        \caption{Schema de tous les différents développements possibles pour un comté}
+                        \label{fig:x photosysteme}
+                \end{figure}
+
+                Les \textbf{décrets}, quand à eux, sont désignés par le gouvernement central pour les provinces. Ce sont des modificateurs important qui permettent d'adapter une province spécifique à un problème qu'elle afronte ou bien tout simplement de booster son potentiel.
+
+                \tab \genbox{
+                    On crée une \class{classe D\'eveloppement}: \\
+                    \tab \classbox{
+                        classe Développement: \\
+                            $\rightarrow$ \var{stratification}: ensemble des stratifications par niveau de développement \\
+                            $\rightarrow$ \var{bonus}: ensemble des \class{bonus} octroyés par niveau \\
+                    } 
+                    Et pour les décrets une \class{classe D\'ecret}: \\
+                    \tab \classbox{
+                        classe Décret: \\
+                            $\rightarrow$ \var{bonus}: \class{modificateur} lié au décret \\
+                            $\rightarrow$ \var{date}: date de mise en action du décret \\
+                            $\rightarrow$ \var{dur\'ee}: durée d'action du décret (peut être éternel) \\ 
+                    } 
+                }
+
+                \textit{$\rightarrow$ Cf. Annexes pour liste des décrets existants}
+                
+                \begin{figure}[h]
+                    \centering
+                        \includegraphics[scale=0.2]{image_ck3_developpement.png}
+                        \caption{Gestion de comtés et développement dans \textit{Crusader Kings III\reg} \textit{(Ici, un comté de type château va être passé au niveau de développement supérieur)}}
+                        \label{fig:x photosysteme}
+                \end{figure}
+            
+            \subsubsection{Population} 
+                Comme précisé précédemment, chaque comté a une \textbf{population}. Celle-ci aura une \textbf{croissance} régulière et une \textbf{stratification en fonction des richesses}. La stratification se compose de trois classes distinctes:
+                    \begin{itemize}
+                        \item La \textbf{Plèbe}
+                        \item Les \textbf{Citoyens}
+                        \item Les \textbf{Aristocrates}
+                    \end{itemize}
+                Chacune de ces catégories payera des \textbf{impôts} différents et consommera des \textbf{ressources} différentes. Cette répartition en stratification se fait en fonction du niveau et du type de comté dans lequel se trouve cette population. \\
+                Quand à sa croissance, elle dépend de l'abandonce en ressources.
+
+                \tab \genbox{
+                    Déjà présent dans la \class{classe D\'eveloppement}. \\
+                }
+
+                \begin{figure}[h]
+                    \centering
+                        \includegraphics[scale=1.7]{image_ir_population.png}
+                        \caption{Population dans \textit{Imperator Rome\reg} \textit{(Ici, on voit la répartition en classes dans le diagramme en bas à droite de l'image)}}
+                        \label{fig:x photosysteme}
+                \end{figure}
+
+        \subsection{Factions et Politique}
+            C'est dans la sphère de politique que se jouera la plupart du jeu. C'est ici que se définira les manières de gouverner et les interactions politiques entre les différentes \textbf{factions}.
+            
+            \subsubsection{Factions}
+                Une \textbf{faction} est une entité politico-sociale incarnée par le joueur, qui en incarnera le chef. Elle correspond à un regroupement de personnes de même intérêts politiques, comme un parti, une famille ou un clan. Le but principal étant de \textbf{mettre et maintenir sa faction au pouvoir} en ayant un membre de celle-ci sur le tr    ône. Si le joueur échoue à cette tâche, il verra son pouvoir sur le pays dissipé, et devra ainsi se préparer au prochain changement de dirigeant pour tenter de reprendre le pouvoir, en engageant amitiés et batailles d'influence sanglantes. Ceci peut se refléter par l'appréciation de personnages importants, jusqu'à lancer des révoltes ou des révolutions pour arriver à ses fins. \\
+                Les factions peuvent contrôler des \textbf{régions} par leur influence. Elles peuvent aussi, si elles sont au pouvoir, assigner les postes de gouverneur, notant que ceux-ci devraient tout de même être répartis \textbf{équitablement} entre les factions afin de les garder au calme.
+
+                \tab \genbox{
+                    On crée une \class{classe Faction}: \\
+                    \tab \classbox{
+                            classe Faction: \\
+                            $\rightarrow$ \var{chef}: \class{personnage} dirigeant la faction (\textit{par exemple, le joueur)} \\
+                            $\rightarrow$ \var{influence}: influence totale de tous les \class{personnages} de la faction \\
+                            $\rightarrow$ \var{r\^ole}: est-ce que la faction est au pouvoir? \\
+                            $\rightarrow$ \var{opinions}: opinions des autres \class{factions} \\
+                            $\rightarrow$ \var{satisfaction}: accord avec le gouvernement actuel \\
+                            $\rightarrow$ \var{priorit\'e}: \var{priorit\'e actuelle} que la faction aimerait amener \\
+                    } 
+                }
+
+                \begin{figure}[h]
+                    \centering
+                        \includegraphics[scale=0.5]{image_rome2_factions.jpg}
+                        \caption{Répartition des Factions Politiques dans \textit{Rome: Total War II\reg} \textit{(Ici, les différents partis de la République Romaine)}}
+                        \label{fig:x photosysteme}
+                \end{figure}
+            
+            \subsubsection{Personnages}
+                Un \textbf{personnage} désigne une personne d'influence dans la nation. Il peut s'affilier à une faction et l'aider dans ses aventures, ou rester seul et essayer de tirer le meilleur parti des autres. Il peut aussi performer une série d'actions comme:\\
+                    \begin{itemize}
+                        \item \underline{Assassiner}:\\
+                            $\rightarrow$ Lance un processsus dépendant de l'influence de l'initiateur et celle de la cible d'une durée déterminée avec une certaine chance d'assassiner la cible à la fin du temps imparti.\\
+                        \item \underline{Se Lier d'Amitié}:\\
+                            $\rightarrow$ Lance un processsus dépendant de l'influence de l'initiateur et celle de la cible d'une durée déterminée avec une certaine chance d'augmenter l'opinion de la cible à la fin du temps imparti.\\
+                        \item \underline{Corrompre}:\\
+                            $\rightarrow$ Lance un processsus dépendant de l'influence de l'initiateur et celle de la cible d'une durée déterminée avec une certaine chance de faire changer la cible de faction pour rejoindre la vôtre à la fin du temps imparti. Notez que ce processus coûte de l'argent.\\
+                    \end{itemize}
+            
+                \tab \genbox{
+                    Un personnage sera représenté par une \class{classe Personnage}: \\
+                    \tab \classbox{
+                        classe Personnage: \\
+                            $\rightarrow$ \var{nom}: nom du personnage \\
+                            $\rightarrow$ \var{\^age}: âge du personnage \\
+                            $\rightarrow$ \var{vivant}: vrai ou faux \\
+                            $\rightarrow$ \var{r\^ole}: rôle, s'il en a un, que le personnage possède \\
+                            $\rightarrow$ \var{influence}: influence du personnage \\
+                            $\rightarrow$ \var{faction}: appartenance politique à une \class{faction} \\
+                            $\rightarrow$ \var{origines}: deux \class{personnages} parents du personnage, si utile \\
+                        }   
+                    Cette classe possèdera une série de \funct{fonctions} symbolysant les actions possibles:
+                    \tab \classbox{
+                        classe Personnage:\\
+                            \tab \funcbox{
+                                def Assassiner(\class{cible}): \\
+                                $\rightarrow$ utiliser \func{Complot()} \\
+                                $\rightarrow$ si \func{Complot()} = Vrai:\\
+                                \tab \class{cible}.\var{vivant} = Faux \\
+                                $\rightarrow$ sinon: \\
+                                \tab attendre(\var{t}) \\
+                                \tab \func{Assasiner()}
+                            }
+                            {\color{verylightgray} .}\\
+                            \tab \funcbox{
+                                def Influencer(\class{cible}): \\
+                                $\rightarrow$ utiliser \func{Complot()} \\
+                                $\rightarrow$ si \func{Complot()} = Vrai:\\
+                                \tab \class{cible}.\class{faction}.\var{opinions} += \var{x} \\
+                                $\rightarrow$ sinon: \\
+                                \tab attendre(\var{t}) \\
+                                \tab \func{Influencer()}
+                            }
+                            {\color{verylightgray} .}\\
+                            \tab \funcbox{
+                                def Corrompre(\class{cible}): \\
+                                $\rightarrow$ utiliser \func{Complot()} \\
+                                $\rightarrow$ si \func{Complot()} = Vrai:\\
+                                \tab \class{cible}.\class{faction} = \class{self}.\class{faction} \\
+                                $\rightarrow$ sinon: \\
+                                \tab attendre(\var{t}) \\
+                                \tab \func{Corrompre()}
+                            }
+                            {\color{verylightgray} .}\\
+                            \tab \mybox{palered} {
+                                def Complot(\class{cible}): \\
+                                $\rightarrow$ \class{self}.\var{influence} $\div$ (2 * \class{cible}.\var{influence} = \var{chance} \\
+                                $\rightarrow$ random(0,1) = \var{essai} \\
+                                $\rightarrow$ si \var{essai} $\leq$ \var{chance}: \\
+                                \tab retourner Vrai
+                            } 
+                    } 
+                }
+
+                \begin{figure}[h]
+                    \centering
+                        \includegraphics[scale=0.3]{image_ir_personnage.png}
+                        \caption{Feuille de Personnage dans \textit{Imperator Rome\reg} \textit{(Ici, un roi Basileus)}}
+                        \label{fig:x photosysteme}
+                \end{figure}
+                
+            \subsubsection{Régimes Politique}
+                Le \textbf{régime politique} est la définition du fonctionnement de l'Etat. C'est sur ce champ de bataille que se battront les différentes factions. Il est représenté par l'ensemble de ces facteurs afin d'amener un challenge qu'est celui \textbf{de la séléction et du maintien de régimes politiques}:
+                
+                \paragraph{Organigramme Politique}
+                    Un \textbf{organigramme} politique sera customisable par le joueur afin de modifier les régimes politiques et leur manières de fonctionner. Ceci est un aspect fondamental est capital pour le fonctionnement de l'\textbf{évolution} historique et du réel intérêt des \textbf{changements de régimes}.\\
+                    Il y a trois ensembles de pouvoir important à prendre en compte:
+                        \begin{itemize}
+                            \item \underline{Le Législatif}:\\
+                                $\rightarrow$ Le pouvoir \textbf{législatif} sert à voter les lois.
+                            \item \underline{Le Judiciaire}:\\
+                                $\rightarrow$ Le pouvoir \textbf{judiciaire} sert à s’assurer du respect des lois.
+                            \item \underline{L'Exécutif}:\\
+                                $\rightarrow$ Le pouvoir \textbf{judiciaire} sert à appliquer les lois et gouverner.
+                        \end{itemize}
+                    Ainsi celui ou ceux qui ont le contrôle sur ces groupes auront beaucoup d’influence et de pouvoir. 
+                    Les différents \textbf{organes} de ce système peuvent intéragir entre eux avec ces cinq options différentes par le biais de flèches les reliant:
+                        \begin{itemize}
+                            \item \underline{A Tire au Sort B}\\
+                                $\rightarrow$ Le \textbf{tirage au sort} est souvent utilisé de nos jours en Suisse pour élire les juges fédéraux. Cela sert à empêcher la corruption. Elle est donc non corruptible.
+                            \item \underline{A Nomme B}\\
+                                $\rightarrow$ La \textbf{nomination} est utilisée dans la forme non démocratique ici. Elle est donc seulement utilisée s'il n’y a qu’un parti ou une personne à connecter. C’est l’option la plus corrompue. 
+                            \item \underline{A Elit B}\\
+                                $\rightarrow$ L'\textbf{élection} sera la version démocratique de la nomination. Le joueur aura moins le contrôle avec cette option. Elle sera moins corrompue que la nomination mais plus que le tirage au sort. 
+                            \item \underline{A Dirige B}\\
+                                $\rightarrow$ La \textbf{direction} servira à déterminer qui a le pouvoir sur qui.
+                            \item \underline{A Contrôle B}\\
+                                $\rightarrow$ Le \textbf{contrôle} ne peut qu'être placée entre 2 groupes de personnes. Le groupe de personne contrôlant l’autre a plus de pouvoir sur elle. 
+                        \end{itemize}
+                    Au total, neuf groupes de personnes peuvent être assignés à ces différents organes:
+                        \begin{itemize}
+                            \item \underline{Le Roi}\\
+                                $\rightarrow$ Le \textbf{roi} est choisi par dieu. Le clergé et la noblesse sont très importants pour son bon fonctionnement.
+                            \item \underline{Le Dictateur}\\
+                                $\rightarrow$ Le \textbf{dictateur} n’est pas choisi par dieu mais a souvent, comme le roi, beaucoup de pouvoir. Il dirige normalement un système non démocratique.
+                            \item \underline{L'Assemblée }\\
+                                $\rightarrow$ L'\textbf{assemblée} est un groupe de personnes qui élisent ou se mettent d’accord. Ce qu’ils élisent peuvent être des lois ou des personnes. L'assemblée peut très bien être composée que d’un parti pour donner l’impression d’une démocratie. 
+                            \item \underline{Le Conseil}\\
+                                $\rightarrow$ Le \textbf{conseil} ressemble à l’assemblée mais ils sont moins nombreux. C’est presque comme une élite. 
+                            \item \underline{Le Peuple (Electeurs) }\\
+                                $\rightarrow$ Le \textbf{peuple} est sûrement le groupe le plus complexe. Ses besoins et envies varieront en fonction des époques, des évènements, des influences, de la stabilité, de la culture et de la religion. Si démocratique, les élections en seront directement influencées. 
+                            \item \underline{Les Juges }\\
+                                $\rightarrow$ Les \textbf{juges} sont généralement en charge du groupe judiciaire. Ils sont les mieux formés dans le domaine et indispensables si on veut un état de droit.
+                            \item \underline{Les Ministres }\\
+                                $\rightarrow$ Les \textbf{ministres} deviennent indispensables lorsque les infrastructures et la taille du territoire sont trop importants. Il est toutefois possible de continuer sans mais de nombreux modificateurs négatifs pour la stabilité, la construction, et le revenu viennent handicaper le joueur. 
+                            \item \underline{Le Clergé}\\
+                                $\rightarrow$ Le \textbf{clergé} est le représentant de l’église. Il sera important si le système ressemble à une monarchie ou une théocratie. 
+                            \item \underline{La Noblesse }\\
+                                $\rightarrow$ Comme le clergé, la \textbf{noblesse} est très importante dans une monarchie. Ils agissent presque comme des ministres héréditaires et donneront aussi les mêmes modificateurs négatifs si on les ignore.
+                            
+                        \end{itemize}
+                    
+                    \begin{figure}[h]
+                        \centering
+                            \includegraphics[scale=0.4]{schema_organigramme.png}
+                            \caption{Prototype d'Organigramme \textit{(Ici, régime libéral du XIX$^{ème}$ siècle)}}
+                            \label{fig:x photosysteme}
+                    \end{figure}
+
+                \paragraph{Conjoncture Tension-Stabilité}
+                    Deux facteurs vont montrer si le régime actuel va bien ou mal:
+                        \begin{itemize}
+                            \item \underline{Stabilité}:\\
+                                $\rightarrow$ La stabilité est considérée comme \textbf{positive}; plus elle est élevée, plus elle est bénéfique. Elle désigne à quel point le régime en place est solide. L'évolution d'un certain nombre de variables définies désigneront si la stabilité augmentera ou baissera au fil du temps. Donc, \textbf{plus un état est en croissance, plus sa stabilité grandira}. La liste des variables l'affectant est la suivante:
+                                    \begin{itemize}
+                                        \item L'argent
+                                        \item La population totale
+                                        \item La tension nationale
+                                    \end{itemize}
+                            \item \underline{Tension}:\\
+                                $\rightarrow$ La tension, quant à elle, est considérée comme \textbf{mauvaise}, car elle augmente le nombre de révoltes.\\
+                        \end{itemize}
+                    Ceux-ci peuvent sembler très similaire, mais ils ne sont en réalité pas dépendants: on peut avoir un Etat très instable mais aucun désir de révolte, ou à l'inverse, un gouvernement central fort et bien établi mais un désir de révolte élevé, même si la plupart du temps les deux sont effectivement conjoints.
+
+                    \tab \genbox{
+                    La \var{tension} et la \var{stabilit\'e} sont des \vart{variables} de la \class{classe Nation}. Leur définition se fait de la manière qui suit (\textit{en notant que cette méthode nécéssite que certaines variables stockent les anciennces valeurs qu'elles avaient}): \\
+                    \tab \classbox{
+                        classe Nation:\\
+                            \tab \funcbox{
+                                def CalculsStabilitéTension(): \\
+                                $\rightarrow$ \var{stabilit\'e} += (\var{argent$_{actuel}$}) - \var{argent$_{avant}$}) * \var{x$_{1}$} \\
+                                $\rightarrow$ \var{stabilit\'e} += (\var{population$_{actuelle}$}) - \var{population$_{avant}$}) * \var{x$_{2}$} \\
+                                $\rightarrow$ \var{stabilit\'e} += (\var{tension$_{actuelle}$}) - \var{tension}) * \var{x$_{3}$} \\
+                                $\rightarrow$ \var{stabilit\'e} += (\var{stabilit\'e$_{actuel}$}) - \var{stabilit\'e$_{avant}$}) * \var{x$_{4}$} \\
+                                $\rightarrow$ si (\var{stabilit\'e$_{actuel}$}) $<$ \var{-y}: \\
+                                \tab \var{tension} -= (\var{stabilit\'e$_{actuel}$}) - \var{stabilit\'e$_{avant}$}) \\
+                        }   
+                    } 
+                }
+
+                    \begin{figure}[h]
+                        \centering
+                            \includegraphics[scale=0.5]{image_vic3_radicalisme.png}
+                            \caption{Radicalisme de la Population dans \textit{Victoria III\reg} \textit{(Ici, correspondrait à le tension)}}
+                            \label{fig:x photosysteme}
+                    \end{figure}
+
+                \paragraph{Priorité Actuelle}
+                    Chaque nation aura une \textbf{priorité actuelle} qui sera représentée par un point dans un \textbf{triangle dont chacune des arrètes représente une des trois priorités}. Ce point représentera le \textbf{pourcentage d'éfficacité} des modificateurs alloués par le budget et pourra aussi \textbf{bloquer certaines actions} si elles sont trop opposées à la priorité actuelle. Il y a donc trois domaines de priorisation:
+                        \begin{itemize}
+                            \item \underline{Le domaine \textbf{civil}:} \\
+                                $\rightarrow$ \textit{Développement, décrets, etc...}
+                            \item \underline{Le domaine \textbf{politique}}:\\
+                                $\rightarrow$ \textit{Stabilisation, lois, etc...}
+                            \item \underline{Le domaine \textbf{militaire}}: \\
+                                $\rightarrow$ \textit{Tactiques, armes, etc...}
+                        \end{itemize}
+                    La position du point est influencée par l'\textbf{ensemble des factions}, par la pondération de leur \textbf{priorité} avec leur \textbf{influence}.
+
+                    \tab \genbox{
+                    On ajoute dans la \class{classe Nation} : \\
+                    \tab \classbox{
+                        classe Nation:\\
+                            \tab \funcbox{
+                                def CalculsPriorité():
+                                $\rightarrow$pour \textit{\class{i}} dans \var{ListeFactions}:\\
+                                \tab si \textit{\class{i}} = militaire: \\
+                                \tab \tab pos[0] += \class{i}.\var{influence} * \var{x} \\
+                                \tab si \textit{\class{i}} = civil: \\
+                                \tab \tab pos[1] += \class{i}.\var{influence} * \var{x} \\
+                                \tab si \textit{\class{i}} = politique: \\
+                                \tab \tab pos[2] += \class{i}.\var{influence} * \var{x} 
+                        }   
+                    } 
+                }
+                        
+                    \begin{figure}[h]
+                        \centering
+                            \includegraphics[scale=0.2]{schema_triangle_priorite.png}
+                            \caption{Triangle de Priorités Actuelles \textit{(Ici, la priorité est très militaire et relativement politique)}}
+                            \label{fig:x photosysteme}
+                    \end{figure}
+
+                \paragraph{Prise de Décisions}
+
+        \subsubsection{Révoltes}
+
+        \subsubsection{Principe d'Atrocités}
+
+        \subsubsection{Catastrophes Naturelles}
+        
+    \subsection{Economie}
+        L'\textbf{économie} est un autre point capital du jeu. Sa stabilité, sa croissance ou sa chute définiront l'avenir même de la nation, causant troubles et prospérité tout au long de la partie.\\
+        L'économie centrale, celle de la nation, se nourrit par trois sources majeures:
+            \begin{itemize}
+                \item L'\textbf{imposition} de la population
+                \item Le \textbf{commerce}
+                \item La \textbf{contribution financière à but politique} \textit{(alias corruption)}    
+            \end{itemize}
+
+            \subsubsection{Imposition}
+                L'\textbf{imposition de la population} est un des principes les plus simples. Vu que la population est divisée en trois catégories (les pauvres, les citoyens et les aristocrates), il suffit d'appliquer la formule suivante:
+                    \begin{equation}
+                        taxation = population d'une certaine classe * taux d'imposition * richesse de la classe
+                    \end{equation}
+                Il peut y avoir des impôts pour chaque stratification territoriale (impôts nationaux, régionaux, provinciaux et comtaux) qui seront fixés par les gérants de celles -ci.
+
+                \tab \genbox{
+                    Donc une réalisation relativement simple de \func{fonction} dans la \class{classe Nation}  : \\
+                    \tab \classbox{
+                        classe Nation:\\
+                            \tab \funcbox{
+                                def CalculsImposition(): \\
+                                $\rightarrow$pour \textit{\class{i}} dans \var{territoire}.\var{division}:\\
+                                \tab pour \textit{\class{j}} dans \class{\textit{i}}.\var{division}:\\ 
+                                \tab \tab pour \textit{\class{k}} dans 2: \\
+                                \tab \tab \tab \var{imp\^ots} += \textit{\class{j}}.\var{population} * \textit{\class{j}}\var{stratification}[\textit{\class{k}}] * \var{richesseClasse}[\textit{\class{k}}] \tab \tab* (\ulcolor[classe]{province}.\var{taxation} + \ulcolor[classe]{comt\'e}.\var{taxation})
+                        }   
+                    } 
+                }
+
+                \begin{figure}[h]
+                    \centering
+                        \includegraphics[scale=0.4]{image_vic3_taxes.png}
+                        \caption{Système de Taxation dans \textit{Victoria III\reg} \textit{(Ici, d'autres type de taxes sont représentées)}}
+                        \label{fig:x photosysteme}
+                \end{figure}
+       
+            \subsubsection{Commerce}
+                Le commerce est l'entité qui gère l'\textbf{équilibrage des ressources} à travers le pays. C'est lui qui amènera une ressource d'un point A à un point B, en passant par un point C et en y payant des \textbf{droits de douane}.        
+                \paragraph{Importation}
+                    Si un comté a une demande de sa population excédant la production locale d'une ressource, il cherchera un comté où la production de cette ressource est en excès et établira une \textbf{route commerciale d'importation}. \\
+                    
+                    \tab \genbox{
+                    On ajoute dans la \class{classe Comt\'e}  : \\
+                    \tab \classbox{
+                        classe Comt\'e:\\
+                            \tab \funcbox{
+                                def Commerce(): \\
+                                $\rightarrow$pour \textit{\class{i}} dans \var{ListeRessources}:\\
+                                \tab si \var{consommation} $>$ \var{production}: \\
+                                \tab $\rightarrow$ Chercher la ressource nanquante parmis la \var{liste de disponnibilit\'es} \\
+                                \tab $\rightarrow$ Y établir une route commerciale
+                        }   
+                    } 
+                }
+                    
+                \paragraph{Exportation}
+                    Si un comté (ou une province) a une production locale d'une ressource excédant la demande de sa population, il cherchera un comté où la production de cette ressource est insuffisante et établira une \textbf{route commerciale d'exportation}. \\
+                    
+                    \tab \genbox{
+                    On ajoute dans la \func{fonction Commerce()}  : \\
+                    \tab \classbox{
+                        classe Comt\'e:\\
+                            \tab \mybox{palered} {
+                                def Commerce(): \\
+                                $\rightarrow$pour \textit{\class{i}} dans \var{ListeRessources}:\\
+                                ... \\
+                                \tab si \var{consommation} $<$ \var{production}: \\
+                                \tab \class{nation}.\var{disponnibilit\'e}.append(\var{\textit{i}})
+                        }   
+                    } 
+                }
+                    
+                \paragraph{Route Commerciale}
+                    Une \textbf{route commerciale} est un chemin qui amène une ressource $\lambda$ d'un point A (en surproduction) vers un point B (en demande). Cette route sera dite \emph{interne} si le départ et la destination et l'arrivée sont dans la même nation ou \emph{externe} si ce n'est pas le cas. \\ 
+
+                    \tab \genbox{
+                    Lorsqu'on établi une route commerciale, on utilise une \class{classe RouteCommerciale}  : \\
+                    \tab \classbox{
+                        classe RouteCommerciale:\\
+                            $\rightarrow$ \var{d\'epart}: \class{comt\'e} qui exporte \\
+                            $\rightarrow$ \var{arriv\'ee}: \class{comt\'e} qui importe \\
+                            $\rightarrow$ \var{ressource}: \class{ressource} échangée \\
+                            $\rightarrow$ \var{itin\'eraire}: liste des \class{comt\'es} par lesquels passe la route \\
+                    } 
+                }
+
+                    \begin{figure}[h]
+                        \centering
+                            \includegraphics[scale=0.15]{image_civ6_commerce.jpeg}
+                            \caption{Commerce dans \textit{Civilization VI\reg} \textit{(Ici, des routes commerciales relient différentes villes)}}
+                            \label{fig:x photosysteme}
+                    \end{figure}
+
+                \paragraph{Droits de Douane}
+                    Lorsqu'une ressource est \textbf{échangée}, elle passera par des comtés qui y appliqueront des \textbf{taxes de droits de douane}. \\
+                    
+                    \tab \genbox{
+                        Il n'y a pas encore de système établi pour les droits de douane, même si le concepts est déjà implémanté par endroits ailleurs dans le plan.
+                    }
+
+            \subsubsection{"Contribution" ou Corruption}
+                Afin de rester au pouvoir, bon nombre des personnes seraient prêtes à \textbf{payer}, ce qui devient ensuite une source de revenus importante. \\
+                
+                \tab \genbox{
+                        Il n'y a pas encore de système établi pour la corruption, même si le concepts est déjà implémanté par endroits ailleurs dans le plan.
+                    }
+
+            \subsubsection{Gestion des Budgets}
+                La nation doit \textbf{équilibrer ses budgets} afin de pouvoir subvenir à ses besoins tout en maintenant une stabilité. \\
+
+                \tab \genbox{
+                        Il n'y a pas encore de système établi pour les budgets, même si le concepts est déjà implémanté par endroits ailleurs dans le plan.
+                    }
+
+                \begin{figure}[h]
+                    \centering
+                        \includegraphics[scale=0.4]{image_eu4_budgets.jpg}
+                        \caption{Gestion des budgets dans \textit{Europa Universalis IV\reg} \textit{(Ici, tous les budgets ont été maxés)}}
+                        \label{fig:x photosysteme}
+                \end{figure}
+
+        \subsection{Epoques}
+            La ligne temporelle du jeu est divisée en \textbf{trois époques} rythmant la partie, amenant différentes contraintes et opportunités. \\
+
+            \tab \genbox{
+                    On ajoute une \class{classe Epoque}  : \\
+                    \tab \classbox{
+                        classe Epoque:\\
+                            $\rightarrow$ \var{nom}: nom de l'époque \\
+                            $\rightarrow$ \var{ID}: numéro ordonné désignant l'époque \\
+                            $\rightarrow$ \var{effets}: effet qu'aura l'arrivée de la nouvelle époque \\
+                            $\rightarrow$ \var{ann\'eApparition}: année durant laquelle l'époque est arrivée dans la nation \\
+                    } 
+                }
+            
+            \subsubsection{Division}
+                La partie est divisée en cinq \textbf{époques}:
+                    \begin{itemize}
+                        \item \underline{I. L'Antiquité: } \\
+                            $\rightarrow$ Représente l'époque allant des premières civilisations à la chute de l'Empire Romain.
+                        \item \underline{II. L'Epoque de Transition: } \\
+                            $\rightarrow$ Représente notre équivalent du moyen-âge et du début de la renaissance
+                        \item \underline{III. La Révolution Industrielle: } \\
+                            $\rightarrow$ Représente notre équivalent de la fin de la renaissance ainsi que le $XVIII^{eme}$ siècle.
+                    \end{itemize}
+                La transition entre ces époques amènera une grande instabilité et des gros troubles politiques. \\
+                
+                \tab \genbox{
+                        Se principe est compris dans la \class{classe Epoque} par le \var{nom} et l'\var{ID} .
+                    }
+
+                \begin{figure}[h]
+                    \centering
+                        \includegraphics[scale=0.4]{schema_frise_chronologique.png}
+                        \caption{Schema de l'Etendue Temporelle Approximative du Jeu \textit{(Ici, notons que les évènements historiques réels n'ont aucune obligation d'apparaître dans le jeu)}}
+                        \label{fig:x photosysteme}
+                \end{figure}
+                
+            \subsubsection{Propagation}
+                Les époques se propagent un peu comme une épidémie le ferait, c'est-a-dire province par province. Lorsque l'époque s'est propagé dans plus de la moitié des territoires du pays, elle deviendra l'époque affectant la nation.  (regarder le mode de propagation des institutions dans \emph{Europa Universalis IV} pour mieux comprendre) \\
+                
+                \tab \genbox{
+                    La \class{classe Nation} et la \class{classProvince} possèdent déjà un paramètre \var{\'epoque}. Néanmoins,sa propagation se fait par le biais d'une \func{fonction} dans la \class{classe Province} : \\
+                    \tab \classbox{
+                        classe Province:\\
+                            \tab \funcbox{
+                                def Propagation(): \\
+                                $\rightarrow$pour \textit{\class{i}} dans \var{ProvincesVoisines}:\\
+                                \tab si \class{self}.\class{\'epoque}.\var{ID} $>$ \class{\textit{i}}.\class{\'epoque}.\var{ID}: \\
+                                \tab \tab \class{\textit{i}}.\var{niveau de d\'eveloppement} $\div$ (100 - (\var{ann\'ee$_{actuelle}$} - \var{ann\'ee$_{apparition}$})) \\
+                                \tab \tab $\rightarrow$ Probablilté de progation dans cette province \class{\textit{i}}
+                        }   
+                    } 
+                }
+                
+                \begin{figure}[h]
+                    \centering
+                        \includegraphics[scale=0.7]{image_eu4_institution.jpg}
+                        \caption{Propagation des Institutions sur \textit{Europa Universalis IV\reg} \textit{(Ici, l'avancée de la renaissance et divers époques similaires)}}
+                        \label{fig:x photosysteme}
+                \end{figure}
+                
+            \subsubsection{Effets}
+                Chaque époque affecte et change les mécaniques de jeu. \\
+                    
+                \tab \genbox{
+                    Les effets sont déjà pris en compte dans la \class{classe Epoque}.
+                }
+
+        \subsection{Innovations}
+            Les \textbf{innovations} sont le vecteur même du progrès. Ce sont elles qui permettron à la nation de s'adapter aux nouvelle contraintes qu'amèneront le temps. Des lois les plus pacifistes aux armes les plus meurtrières, tout passe par là.\\
+
+            \tab \genbox{
+                    On crée une \class{classe Innovation} : \\
+                    \tab \classbox{
+                        classe Innovation:\\
+                            $\rightarrow$ \var{domaine}: militaire, civil ou politique \\
+                            $\rightarrow$ \var{palier}: [1-10] \\
+                            $\rightarrow$ \var{raret\'e}: facteur de rareté de l'innovation en question \\
+                            $\rightarrow$ \var{effet}: effet de l'innovation\\  
+                    } 
+                }
+            
+            \textit{$\rightarrow$ Cf. Annexes pour liste des technologies existantes} \\
+            
+            \subsubsection{Division}
+                Il y a beaucoup d'innovations à prendre en compte. Elles arriverons dans différents contextes politique, économique et temporels. C'est pourquoi nous avons décidé de les diviser en \textbf{domaines} d'action:
+                    \begin{itemize}
+                        \item Les Technologies \textbf{diplomatiques et politiques}
+                        \item Les Technologies \textbf{civiles}
+                        \item Les Technologies \textbf{militaires}
+                    \end{itemize}
+                Elles sont aussi classées en \textbf{paliers}. Un palier est un regroupement de technologies d'une même chronologie. Chaque époque (détaillé plus loin) possède un palier primitif et un palier tardif. \\
+                
+                \tab \genbox{
+                    Les effets seront compris dans la \class{classe Innovation}, comme démontré précédemment. \\
+                }
+
+                \begin{figure}[h]
+                    \centering
+                        \includegraphics[scale=0.4]{schema_domaines.png}
+                        \caption{Division des technologies}
+                        \label{fig:x photosysteme}
+                \end{figure}
+            
+            \subsubsection{Découverte}
+                Les technologies ne sont pas sélectionnées par le joueur mais arrivent aléatoirement avec le temps, venant du palier actuel, du précédant ou du suivant. Trois facteurs vont affecter la probabilité qu'une technologie arrive:
+                    \begin{itemize}
+                        \item La rareté de la technologie (pondérée avec le palier actuel)
+                        \item Le développement total du pays
+                        \item Les budgets alloués aux différents domaines 
+                    \end{itemize}
+                Notons aussi que certaines technologies ont des prérequis (on ne peut pas inventer la voiture sans avoir inventé la roue). \\
+                
+                \tab \genbox{
+                    Dans \class{classe Nation} on crée une \func{fonction} : \\
+                    \tab \classbox{
+                        classe Nation:\\
+                            \funcbox{
+                                def CalculsInnovations(): \\
+                                \tab pour \textit{\class{i}} dans \var{ListeInnnovations}:\\
+                                \tab \tab si\class{\textit{i}}.\var{palier} = \class{self}.\var{palier (+/-1)}: \\
+                                \tab \tab \tab \class{self}.\var{d\'eveloppement} * \var{budgetDansLeDomaine} * (0.5, si palier \tab \tab \tab = +1; 1 si palier = +0; 1.5, si palier = -1) $\div$ \class{\textit{i}}.\var{raret\'e} \tab \tab \tab= probabilité d'apparition de l'\class{innovation}
+                        }   
+                    } 
+                }
+                
+            \subsubsection{Effets}
+                Lorsqu'une technologie sera découverte, elle amènera un \textbf{effet} à la nation. Celui-ci sera classé de la manière suivante:
+                    \begin{itemize}
+                        \item Effet passif
+                            \begin{itemize}
+                                \item Des modificateurs de statistiques passifs.
+                            \end{itemize}
+                        \item Effet actif
+                            \begin{itemize}
+                                \item Politique
+                                    \begin{itemize}
+                                        \item Gouvernements 
+                                        \item Lois
+                                        \item Idéologies
+                                    \end{itemize}
+                                \item Militaire
+                                    \begin{itemize}
+                                        \item Tactiques 
+                                        \item Armes
+                                    \end{itemize}
+                                \item Civil
+                                    \begin{itemize}
+                                        \item Bâtiments 
+                                        \item Décrets
+                                        \item Idéologies
+                                    \end{itemize}
+                                \item Diplomatique
+                                    \begin{itemize}
+                                        \item Concepts Diplomatiques \emph{(alliances, fédérations, confédérations, etc...)} 
+                                    \end{itemize}
+                            \end{itemize}   
+                    \end{itemize}  
+
+                    \tab \genbox{
+                        Les effets seront compris dans la \class{classe Innovation}, comme démontré précédemment.
+                    }
+                    
+        
+        \subsection{Guerre}
+            Les \textbf{armées} seront les acteurs impliqués dans la \textbf{défense du pays} des \textbf{invasion extérieures} ainsi que des \textbf{révoltes, révolutions et guerre civiles}. Son fonctionnement permettra une personnalisation des tactiques, de l'équipement et des formations des soldats.\\
+            \begin{center}
+                \textit{Cette section a été faite en grande collaboration avec notre camarade Jean.}
+            \end{center}\\
+            
+            \subsubsection{Révolutions et Guerres Civiles}
+
+            \subsubsection{Invasions Externes}
+
+            \subsubsection{Champ de Bataille}
+                C'est la structure même du champ de bataille qui va définir les combats et la construction des armées.\\
+                Globalement, le champ de bataille se divise en trois flancs de trois lignes, composant neuf cases, chacunes subdivisées en trois rangées: une pour la \textbf{mêlée}, une pour l'\textbf{infanterie de tir}, et une pour l'\textbf{artillerie}. La largeur de ces rangées dépend en fonction des technologies.
+
+                \begin{figure}[h]
+                    \centering
+                        \includegraphics[scale=0.5]{schema_champ_de_bataille.png}
+                        \caption{Division du Champ de Bataille}
+                        \label{fig:x photosysteme}
+                \end{figure}
+
+                Les cases comportent aussi une caractéristique de \textbf{terrain } qui va affecter les combats se déroulant sur celle-ci.\\
+                Notons aussi que les technologies pourront changer la \textbf{largeur} en nombre de colonnes \textbf{des cases} (ici une largeur de 2 sur la figure)
+                
+            \subsubsection{Armée}
+                Une armée est composée d'\textbf{unités}, divisées en types en fonction de leur rangée de combat, c'est-a-dire: \textbf{mêlée}, \textbf{infanterie de tir} et \textbf{artillerie}. On les subdivise ensuite selon leur classes, qui se listent comme suit:
+
+                \begin{tabular}{|c|c|c|c|}\hline
+                    Type: & Classe: & Logo: & Descriptif:\\ \hline\hline
+                    I & Classe Combat & A & \begin{tabular}{c} Bon dégâts \\ Mauvaise défense\\ Peut être montée à cheval\\ \end{tabular}\\ \hline
+                    I & Classe Polyvalente & B & \begin{tabular}{c} Variation selon l'équipement \\ Stats équilibrées\\ Peut être montée à cheval\\ \end{tabular}\\ \hline
+                    I & Classe de Piquiers & C & \begin{tabular}{c} Bonne défense \\ Peu cher\\ Contre la cavalerie\\ \end{tabular}\\ \hline
+                    II & Classe d'Archers Légers & D & \begin{tabular}{c} Bon contre la cavalerie \\ Peu cher\\ Petite portée\\ \end{tabular}\\ \hline
+                    II & Classe de Tireurs & E & \begin{tabular}{c} Fort contre l'armure \\ Portée moyenne\\ \end{tabular}\\ \hline
+                    III & Classe d'Artillerie de Campagne & F & \begin{tabular}{c} Fort contre l'armure \\ Explosif\\ Portée moyenne\\ \end{tabular}\\ \hline
+                    III & Classe d'Artillerie de Siège & G & \begin{tabular}{c} Inutile en bataille \\ Capital dans les sièges\\\ Cher\\ Portée moyenne\\ \end{tabular}\\ \hline
+                \end{tabular}
+                
+                Les unités ainsi que leur présence dans une armée pourront être \textbf{personnalisés} pour répondre le mieux possible aux besoins et contraintes de l'état actuel de la nation, on notera donc deux pannels de personnalisation, celui de l'unité, où l'on pourra changer les \textbf{armes}, lesr \textbf{armures}, les \textbf{boucliers} ainsi qu'ajouter des \textbf{chevaux}, et le pannel d'armée, où l'on pourra décider de quelles unités et en quelles quantités elles seront présentes dans une armée.
+
+            \subsubsection{Combats}
+                    
+            \subsubsection{Résolution}
+                Pour mettre fin à une guerre, il faut signer un \textbf{accord de paix} ou \textbf{éradiquer complètement} l'adversaire. \\
+                
+                \tab \mybox{lightgray}{$\rightarrow$ A trouver: Fonctionnement et signature des traités de paix} 
+
+    \subsection{Conditions de Victoire}  
+        \subsubsection{Fin de Partie}
+        \subsubsection{Victoire}
+        \subsubsection{Défaite}
+\pagebreak
+
+\section{Programmation}
+    \begin{comment}
+    \begin{itemize}
+        \item \underline{Compétences Requises} \\
+            $\rightarrow$  Maîtrise de l'interface Unity
+            $\rightarrow$  Maîtrise de la construction d'interfaces graphiques
+            $\rightarrow$  Maîtrise de la modélisation 3D (pas forcément de la frabrication)
+            $\rightarrow$  Maîtrise d'une ambiance visuelle et sonore
+        \item \underline{Recherches Requises} \\
+            $\rightarrow$ Comprendre et pouvoir utiliser des fonctions de bruits de Perlin \\
+            $\rightarrow$ Méthode pour la MDT:RPC (expliqué plus bas)
+        \item \underline{Responsable :} Pierre F.
+    \end{itemize}
+    \end{comment}
+    Nous entrons maintenant dans les parties \textbf{plus techniques et générales} du jeu qui se détache des mécaniques de jeu. C'est ici que se trouverons les aspects clés derrière le fonctionnement du jeu.
+
+    \subsection{Temporalité en Jeu}
+        Le jeu se déroulera en \textbf{pseudo-temps réel}, c'est-à-dire qu'à chaque fois qu'un \textit{tic} (une unité arbitraire ayant une valeure temporelle) passe, on s'occuper de mettre-à-jour certains concepts du jeu. Afin d'éviter un surchargement du jeu, les différentes fonctions qui devront être mises-à-jour seront classifiées selon le principe qui suit:
+            \begin{itemize}
+                \item \underline{Fonctions Constantes: } \\
+                    $\rightarrow$ Les \textbf{fonctions constantes} sont des fonction qui doivent être \textbf{constamment mises-à-jour}.
+                \item \underline{Fonctions Régulières: } \\
+                    $\rightarrow$ Les fonctions partielles sont des fonctions qui doivent être mises-à-jour à un un interval \textbf{régulier}, mais pas constant.
+                \item \underline{Fonctions Rares: } \\
+                    $\rightarrow$ Les \textbf{fonctions rares} sont des fonctions qui doivent \textbf{rarement} être mises-à-jour.
+            \end{itemize}
+        La valeur d'un tic peut donc être modulable et correspondre aux capacités des ordinateurs différents. \\
+            
+        \tab \genbox{
+                    On crée une \class{classe Main} qui gérèra l'ensemble des interactions du jeu, et on y ajoute des \funct{fonctions}: \\
+                    \tab \classbox{
+                            classe Main: \\
+                            $\rightarrow$ \var{date}: date actuelle du jeu \\
+                            $\rightarrow$ \var{tic}: tic actuel de la partie \\
+                            \tab \funcbox{
+                                def Update(): $\rightarrow$ S'éxécutre à chaque tic \\
+                                $\rightarrow$ utiliser \func{UpdateFonctionsConstantes()} \\
+                                $\rightarrow$ si \var{tic} \% \var{x} = 0:\\
+                                \tab utiliser \func{UpdateFonctionsR\'eguli\`eres()}
+                                $\rightarrow$ si \var{tic} \% \var{y} = 0: \\
+                                \tab utiliser \func{UpdateFonctionsRares()}
+                            }   
+                    {\color{verylightgray} .}\\
+                            \tab \funcbox{
+                                def UpdateFonctionsConstantes(): \\
+                                $\rightarrow$ pour \class{\textit{i}} dans \var{ListeNations}: \\
+                                \tab \textit{Insérer toutes les \func{fonctions constantes} de la \class{classe Nation}}
+                        }
+                    {\color{verylightgray} .}\\
+                            \tab \funcbox{
+                                def UpdateFonctionsRégulières(): \\
+                                $\rightarrow$ pour \class{\textit{i}} dans \var{ListeNations}: \\
+                                \tab \textit{Insérer toutes les \func{fonctions r\'eguli\`eres} de la \class{classe Nation}}
+                        }
+                    {\color{verylightgray} .}\\
+                            \tab \funcbox{
+                                def UpdateFonctionsRares(): \\
+                                $\rightarrow$ pour \class{\textit{i}} dans \var{ListeNations}: \\
+                                \tab \textit{Insérer toutes les \func{fonctions rares} de la \class{classe Nation}}
+                        }
+                    }   
+                }
+                
+        \begin{figure}[h]
+            \centering
+                \includegraphics[scale=0.3]{image_hoi4_time.jpeg}
+                \caption{Barre d'Avancée du Temps dans \textit{Hearts of Iron IV\reg} \textit{(Ici, la vitesse de défilement est au maximum)}}
+                \label{fig:x photosysteme}
+        \end{figure}
+        
+    \subsection{Rejouabilité}
+    
+    \subsubsection{Génération Aléatoire de la Carte}
+        Le terrain sera généré aléatoirement et sera construit selon deux méthodes:
+            \begin{itemize}
+                \item \underline{ La Fonction Perlin Noise: }
+                    \begin{itemize}
+                        \item Génération de la hauteur du terrain
+                            \begin{itemize}
+                                \item Si la valeur est au dessus de \emph{H}: Montagne
+                                \item Si la valeur est comprise entre \emph{h} et \emph{H}: Plaine
+                                \item Si la valeur est au dessous de \emph{h}: Mer ou Océan
+                            \end{itemize}
+                        \item Génération des Biomes
+                            $\rightarrow$ Utilisation de la méthode du TM de Vincent Philippe en appliquant un facteur de position Nord-Sud ?
+                    \end{itemize}
+                \item \underline{La Méthode de Division du Terrain en Royaumes, Provinces et Comtés (MDT:RPC)} \\
+                
+                \tab \mybox{lightgray}{$\rightarrow$ A trouver: MDT:RPC} 
+                
+            \end{itemize}
+            
+        \tab \genbox{
+            On crée une fonction pour la génération du terrain:\\
+            \tab \funcbox{
+                    def GénérerTerrain():
+                    $\rightarrow$ utiliser \func{FonctionDePerlin()} pour assigner une \var{valeur} entre 0 et 1 à chaque point de la carte
+                    $\rightarrow$ assigner la \var{hauteur} de chaque point en fonction de la \var{valeur sortie}
+                    $\rightarrow$ Puis:\\
+                    \tab si \var{h} \> \var{X$_{1}$}:\\
+                    \tab\tab \textit{Faire de ce point une montagne}
+                    \tab si \var{h} \< \var{x$_{2}$}:\\
+                    \tab\tab \textit{Faire de ce point de la mer}\\
+                    \tab sinon:\\
+                    \tab\tab \textit{Faire de ce point une plaine}\\
+                    $\rightarrow$ utiliser à nouveau la \func{FonctionDePerlin}, mais cette fois-ci les changements de valeurs serviront à déterminer les biomes, sans oublier d'y appliquer un certain facteur Nord-Sud.
+                    \tab$\rightarrow$(c.f. TM-2022 de Monsieur Vincent Philippe)\\
+                    $\rightarrow$ Finalement, on divise le terrain donné en \class{comt\'es}, puis en \class{provinces} et ensuite en \class{régions} selon une méthode qu'il nous faudra encore élaborer.
+            }
+        }
+        
+            \subsubsection{Customabilité}
+
+                \tab\genbox{
+                Il y aura une série de \vart{variables} customisables ainsi qu'une série d'autres aspects du jeu, mais étend donné que nous n'avons pas encore dressé une liste de ces customisations possibles, nous ne pouvons pas encore établir une ensemble de \funct{fonctions}.
+                }
+                \paragraph{Armées}
+                \paragraph{Nom des Localisations}
+                \paragraph{Factions Politiques}
+                \paragraph{Personnages}
+                \paragraph{Drapeaux \& Armoiries}
+                \paragraph{Régimes Politiques}
+
+            \subsubsection{Evènements Aléatoires}
+
+            \tab\genbox{
+                On commence par créer une \class{classe Ev\`enement}:\\
+                    \tab\classbox{
+                            classe Evènement:\\
+                            $\rightarrow$\var{nom}: nom de l'évènement\\
+                            $\rightarrow$\var{options}: choix de réponses possibles à la situation\\
+                            $\rightarrow$\var{effets}: effets de chacune des options\\
+                    }
+                Ensuite on ajoute une \func{fonction} à la \class{class Nation}:\\
+                    \tab\classbox{
+                        classe Nation:\\
+                        \tab\funcbox{
+                            def CalculsEvènementAléatoire:\\
+                            $\rightarrow$ Probabilité de \var{x} d'une \class{\'ev\`enement al\'eatoire}\\
+                           \tab$\rightarrow$si vrai: \\
+                           \tab\tab random(0,longeur(\var{ListeEv\`enements})) = \class{n} \\
+                           \tab\tab utiliser \class{classe} \var{ListeEv\`enements}[\class{n}]
+                        }
+                    }
+                }
+
+    \subsection{Intelligence Artificielle}
+        Le jeu comportera une série de pseudo intelligences artificielles pour simuler divers éléments, principalement: les \textbf{autres factions}, les \textbf{révoltes}, \textbf{révolutions} et \textbf{guerres civiles}, ainsi que les \textbf{personnages}, leur gestion du \textbf{développement du territoire}.
+
+        \subsubsection{Factions}
+
+        \subsubsection{Armées}
+
+        \subsubsection{Personnages}
+
+        \subsubsection{Gestion Territoriale}
+
+    \subsection{Interface Graphique et Audiovisuelle}
+        Il est important de rendre le jeu agréable visuellement aux yeux du joueur, d'où la création d'une interface graphique et visuelle.
+        
+        \subsubsection{L'UI ou Interface d'Utilisateur}
+            L'UI, ou Interface Utilisateur (\textit{User Interface} pour les anglophones), représente tout ce qui est de l'affichage d'informations. Par exemple dans un \textit{First Person Shooter}, il s'agirait de la barre de vie, des munitions, etc... Dans notre cas, il s'agira des barres d'informations sur les variables comme l'argent ou la population ainsi que les fenêtres que l'utilisateur pourra ouvrir afin d'accéder et agir sur des interfaces supplémentaires. \\
+
+           \genbox{
+                La réalisation de l'UI n'est pas particulièrement complexe, il s'agira d'une succession d'éléments liés à des fonctions du type:\\
+                \funcbox{
+                    def BoutonClic():\\
+                    $\rightarrow$ cacher \class{fen\^etre A}\\
+                    $\rightarrow$ afficher \class{fen\^etre B}\\
+                    $\rightarrow$ afficher les \vart{variables} \var{x} sur la \class{fen\^etre B}
+                }
+           } 
+            
+            \textit{$\rightarrow$ Cf. Annexes pour liste des éléments d'UI nécessaires}
+            
+        \subsubsection{La Carte}
+            La représentation visuelle de la carte, avec son relief, ses biomes et toutes ses autres données, sera faite à l'aide d'\emph{assets}, probablement, trouvés en ligne.
+
+            \genbox{
+                La création de la carte se fera avec les outils d'\textit{Unity\reg} et les \var{informations} reçues  de la \func{fonction G\'en\'ererTerrain()}.
+            }
+            
+        \subsubsection{Les Modèles 3D}
+            Les modèles 3D, tels que les villes, les châteaux et les armées, seront probablement importés en ligne ou fait par des connaîssances.\\
+
+            \genbox{
+                On peut modéliser des modèles 3D à l'aide de l'outil \textit{Blender\reg}. Ceci demande d'acquérir une certaine aisance sur le logiciel, mais celui-ci est gratuit et l'internet regorge de tutoriels expliquant son fonctionnement.
+            }
+            
+            \textit{$\rightarrow$ Cf. Annexes pour liste des modèles 3D nécessaires}
+            
+        \subsubsection{Ambiance Sonore}
+            C'est avec l'ambiance sonore qu'un joueur se sentira à l'aise dans un jeu vidéo.
+            
+            \paragraph{Musique}
+                La musique du jeu sera trouvée en ligne, en respectant les droits d'auteurs, ou jouée par des membres de notre entourrage. \\
+
+                \genbox{
+                    Lorsqu'un évènement dans lejeu demande un changement d'ambiance, on appelle une \funct{fonction} dans la \class{classe Main} qui s'occupera de ce changement:\\
+                    \classbox{
+                        classe Main:\\
+                       \funcbox{
+                            def ChangementAmbiance(\var{ambiance}):\\
+                            $\rightarrow$ random(0,\var{ListMusiquesAmbianceVoulue}) = \var{n}\\
+                            $\rightarrow$ play(\var{ListeMusiquesAmbianceVoulue}.\var{n})
+                       } 
+                    }
+                }
+                
+                \textit{$\rightarrow$ Cf. Annexes pour liste des musiques nécessaires}
+                
+            \paragraph{Bruitages et Effets Sonores}
+                Les effets sonores seront enregistrés, importés ou créés sur logiciel afin d'offir la meilleur qualité pour le jeu. \\
+
+                \genbox{
+                    Lorsque l'on souhaite faire entendre un effet sonore, on utiliser une \funct{fonction} dans la \class{classe Main}:\\
+                    \classbox{
+                        classe Main:\\
+                        \funcbox{
+                            def EffetSonore(\var{son}):\\
+                            $\rightarrow$ couper les autres \var{sons} (pas la musique)\\
+                            $\rightarrow$ jouer (\var{son})
+                        }
+                    }
+                }
+                
+                \textit{$\rightarrow$ Cf. Annexes pour liste des effets sonores nécessaires}
+
+\pagebreak
+
+\section{Annexes}
+    \subsection{Structure Générale du Code}
+
+        \genbox{
+            \classbox{
+                classe Main:\\
+                \funcbox{
+                    def Update():\\
+                    $\rightarrow$ 
+                }
+            }
+        }
+        
+    \subsection{Attributs}
+
+        \subsubsection{Liste des Ressources Existantes}
+
+           \begin{tabular}{|l|c|c|} \hline
+               Nom: & Type: & Valeur: \\ \hline\hline
+               A & I & B \\ 
+               C & II & D \\ \hline
+           \end{tabular} 
+
+        \subsubsection{Liste des Technologies Existantes}
+
+            \begin{tabular}{|l|c|c|c|l|} \hline
+               Nom: & Domaine: & Palier: & Rareté: & Effets: \\ \hline\hline
+               A & B & 2 & C & D \\
+               E & F & 5 & G & H \\ \hline
+           \end{tabular} 
+
+    \subsection{Rejouabilité}
+
+        \subsubsection{Evènemts Aléatoires}
+
+            \begin{tabular}{|l|c|l|} \hline
+               Nom: & Options: & Effets: \\ \hline\hline
+               A & B & C \\
+               D & E & F \\ \hline
+           \end{tabular} 
+    
+    \subsection{Interface Graphique}
+
+        \subsubsection{Eléments d'UI Nécessaires}
+             %768x408 \\
+             
+            \begin{tabular}{|l|c|l|} \hline
+                Nom: & Schéma: & Implications: \\ \hline \hline
+                \begin{turn}{90}Exemple\end{turn} & \includegraphics[scale=0.4]{schema_ui_vierge.png} & Rien\\ \hline
+            \end{tabular}
+            
+        \subsubsection{Modèles 3D Nécessaires}
+
+            \begin{tabular}{|l|l|} \hline
+                Nom: & Descriptif: \\ \hline \hline
+                Modèle A & Servira à B \\ \hline
+            \end{tabular}
+
+    \subsection{Interface Audio}
+
+        \subsubsection{Musiques Nécessaires}
+
+            \begin{tabular}{|l|l|l|l|} \hline
+                Ambiance: & Epoque: & Auteur: & Titre:\\ \hline \hline
+                Calme & Antiquité & J.-S. Bach & Agnus Dei en D Mineur\\ \hline
+            \end{tabular}
+
+        \subsubsection{Effets Sonores Nécessaires}
+
+            \begin{tabular}{|l|l|} \hline
+                Nom: & Descriptif: \\ \hline \hline
+                A & B\\ \hline
+            \end{tabular}
+
+    \subsection{Bibliographie}
+
+        \underline{Conseillers Externes:}
+            \begin{itemize}
+                \item Jean, Etudiant en HEC, 1$^{re}$ année
+            \end{itemize}
+
+        \underline{Sources Ecrites:}
+           \begin{itemize}
+               \item Simpson, Adam. \textit{Les 1001 idées qui ont changé le monde}. Flammarion, 2014
+               \item Dauliac, Jean-Pierre. \textit{Histoire militaire: de la hache de pierre à la guerre électronique. Gründ, 2013}
+           \end{itemize} 
+
+        \underline{Sources Vidéoludiques:}
+            \begin{itemize}
+                \item \textit{Sid Meier's Civilization VI\reg}. 2K Games\reg, 2016. \large
+                \item \textit{Imperator Rome\reg}. Paradox Interactive\reg,2019\large
+                \item \textit{Crusader Kings III\reg}. Paradox Interactive\reg,2020\large
+                \item \textit{Europa Universalis IV\reg}. Paradox Interactive\reg,2013\large
+                \item \textit{Victoria III\reg}. Paradox Interactive\reg,2022\large
+                \item \textit{Hearts of Iron IV\reg}. Paradox Interactive\reg,2016\large
+                \item \textit{Total War: Rome II\reg}. SEGA\reg,2013\large
+            \end{itemize}
+            
+        \underline{Sources en Ligne:}
+            \begin{itemize}
+                \item -
+            \end{itemize}
+            
+        \underline{Images:}
+            \begin{itemize}
+                \item Fig 1: \textit{\url{https://styly.cc/tips/shader_beginner/}}
+                \item Fig 2: \textit{\url{https://www.reddit.com/r/hoi4/comments/oel7la/hearts_of_iron_4_has_reached_100000_steam_reviews/}}
+                \item Fig 3: \textit{\url{https://outsidergaming.com/civ-6-best-luxury-resource-for-each-victory-type/}} 
+                \item Fig 4: \textit{\url{https://www.gamepur.com/guides/how-faith-and-culture-work-in-crusader-kings-3}}
+                \item Fig 5: \textit{\url{https://www.reddit.com/r/CrusaderKings/comments/ia5wo4/since_i_never_saw_this_get_posted_heres_a_county/}}
+                \item Fig 6: Fabrication Personnelle, sur \textit{\url{https://app.diagrams.net/}}
+                \item Fig 7: \textit{\url{https://www.pcinvasion.com/crusader-kings-iii-special-buildings-realm-holdings/}}
+                \item Fig 8: \textit{\url{https://imperator.paradoxwikis.com/Population}}
+                \item Fig 9: \textit{\url{https://www.twcenter.net/forums/content.php?514-Total-War-Rome-II-Guide-to-Politics-the-Family-Tree}}
+                \item Fig 10: \textit{\url{https://imperator.paradoxwikis.com/Characters}}
+                \item Fig 11: Fabrication Personnelle, sur \textit{\url{https://app.diagrams.net/}}
+                \item Fig 12: \textit{\url{https://www.altchar.com/game-news/radicals-and-loyalist-will-clash-in-victoria-3-aNyoW0Q6Qmqi}}
+                \item Fig 13: Fabrication Personnelle, sur \textit{\url{https://app.diagrams.net/}}
+                \item Fig 14: \textit{\url{https://forum.paradoxplaza.com/forum/developer-diary/victoria-3-dev-diary-12-treasury.1488588/}}
+                \item Fig 15: \textit{\url{https://forums.civfanatics.com/resources/trade-routes-guide.25529/}}
+                \item Fig 16: \textit{\url{https://www.jeuxvideo.com/forums/1-29518-10790-1-0-1-0-production.htm}}
+                \item Fig 17: \textit{\url{https://archives.meurthe-et-moselle.fr/le-service-\%C3\%A9ducatif/ressources-p\%C3\%A9dagogiques/ressources-p\%C3\%A9dagogiques-0/la-r\%C3\%A9volution-industrielle}}
+                \item Fig 18: \textit{\url{https://steamcommunity.com/sharedfiles/filedetails/?id=1881890980}}
+                \item Fig 19: Fabrication Personnelle, sur \textit{\url{https://app.diagrams.net/}}
+                \item Fig 20: \textit{\url{https://www.reddit.com/r/hoi4/comments/r2jp6e/am_i_the_only_one_who_has_this_problem_slower/}}
+            \end{itemize}
+
+    \subsection{Problématique Explicite}
+
+        \begin{center}
+            \underline{Problématique Primaire:}\\
+
+                {\textcolor{white}{.}} \\
+                
+                \begin{tabular}{|c|} \hline
+                    {\Large\textbf{ABCDEF?}} \\ \hline
+                \end{tabular} \\
+
+                {\textcolor{white}{.}} \\
+
+            \underline{Problématiques Secondaires}:\\
+            
+                {\textcolor{white}{.}} \\
+                
+                \begin{tabular}{|c|} \hline
+                    Est-ce que les outils modernes permettent de créer un jeu vidéo de simulation avec des délais \\et des moyens restreints? \\ \hline
+                \end{tabular} \\
+                
+                {\textcolor{white}{.}} \\
+                
+                \begin{tabular}{|c|} \hline
+                    Peut-on créer une immersion dans un jeu vidéo? \\ \hline
+                \end{tabular} \\
+
+                {\textcolor{white}{.}} \\
+
+                \begin{tabular}{|c|} \hline
+                    En quoi la structure d'un travail à deux amène des avantages et des inconvénients? \\ \hline
+                \end{tabular}\\
+            
+        \end{center}
+        
+    \subsection{Confirmation du Plan}
+    
+        \textbf{Confirmation du Plan de TM - Emilien Cangemi} \\
+        Moi, sous-signé Emilien Cangemi, certifie que ce plan est celui de mon Travail de Maturité pour l'année 2023. J'ai parcouru et compris les idées proposées dans ce texte et m'engage à les réaliser dans les délais imposés.\\ \\
+            {\texttt{Le \_\_\_\_\_\_\_\_\_\_ à \_\_\_\_\_\_\_\_\_\_ : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_} \\} \\
+
+        \textbf{Confirmation du Plan de TM - Pierre Ferasson} \\
+        Moi, sous-signé Pierre Ferasson, certifie que ce plan est celui de mon Travail de Maturité pour l'année 2023. J'ai parcouru et compris les idées proposées dans ce texte et m'engage à les réaliser dans les délais imposés.\\ \\
+            {\texttt{Le \_\_\_\_\_\_\_\_\_\_ à \_\_\_\_\_\_\_\_\_\_ : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_} \\} \\
+
+        \textbf{Confirmation du Plan de TM - Monsieur David DaSilva} \\
+        Moi, sous-signé Monsieur David DaSilva, certifie que ce plan est celui du Travail de Maturité 2023 d'Emilien Cangemi et de Pierre Ferasson. J'ai parcouru et compris les idées proposées dans ce texte et accepte de surveiller leur travail dans les délais imposés.\\ \\
+            {\texttt{Le \_\_\_\_\_\_\_\_\_\_ à \_\_\_\_\_\_\_\_\_\_ : \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}}
+         
+\end{document}
