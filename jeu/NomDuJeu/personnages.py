@@ -12,7 +12,3 @@ class Personnage():
         self.age = age
 
         faction.membres.append(self)
-
-        print(faction.nom, ":", self.nom)
-
-        liste.append(self)

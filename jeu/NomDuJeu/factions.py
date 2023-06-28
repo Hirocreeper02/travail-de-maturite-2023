@@ -11,5 +11,3 @@ class Faction():
         self.positionnement = positionnement
         self.motto = motto
         self.membres = []
-
-        liste.append(self)

@@ -11,4 +11,6 @@ class Utopie():
         self.lois = lois
         self.positionnement = positionnement
 
-        liste.append(self)
+def creation():
+
+    liste.append(Utopie("Technocratie",None,None,[50,-50,-100,-50]))

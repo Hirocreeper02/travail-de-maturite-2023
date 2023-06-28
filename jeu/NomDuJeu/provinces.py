@@ -9,5 +9,3 @@ class Province():
         self.nom = nom
         self.faction = faction
         self.comtes = []
-
-        liste.append(self)
