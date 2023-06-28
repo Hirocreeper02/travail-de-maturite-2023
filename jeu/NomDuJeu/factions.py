@@ -1,5 +1,4 @@
-import personnages
-import utopies
+
 
 liste = []
 

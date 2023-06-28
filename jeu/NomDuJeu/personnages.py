@@ -1,4 +1,4 @@
-
+import factions
 
 liste = []
 
@@ -10,5 +10,9 @@ class Personnage():
         self.faction = faction
         self.influence = influence
         self.age = age
+
+        faction.membres.append(self)
+
+        print(faction.nom, ":", self.nom)
 
         liste.append(self)
