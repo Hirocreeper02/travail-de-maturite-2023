@@ -1,5 +1,6 @@
 
 
+index = {}
 liste = []
 
 class Ressource():
@@ -10,6 +11,8 @@ class Ressource():
         self.type = type
         self.valeur = valeur
         self.prerequis = prerequis
+
+        index[self.nom] = self
 
 def creation():
 

@@ -1,5 +1,6 @@
 
 
+index = {}
 liste = []
 
 class Province():
@@ -9,3 +10,5 @@ class Province():
         self.nom = nom
         self.faction = faction
         self.comtes = []
+
+        index[self.nom] = self

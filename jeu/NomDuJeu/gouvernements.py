@@ -1,3 +1,6 @@
+import random
+import fonctions
+import variables
 
 liste = []
 
@@ -7,7 +10,7 @@ class Pouvoir():
         self.nom = nom
         self.poste = poste
         self.nomination = nomination
-        self.nominationmembres = []
+        self.membres = []
 
 class Legislatif(Pouvoir):
 
@@ -24,14 +27,64 @@ class Judiciaire(Pouvoir):
 class Gouvernement():
 
     def __init__(self,legislatif:object,executif:object,judiciaire:object):
-        self.legislatif = legislatif
-        self.executif = executif
-        self.judiciaire = judiciaire
+        self.pouvoirs = [legislatif,executif,judiciaire]
 
-def creation():
+def creation(legislatif:object,executif:object,judiciaire:object):
+
+    global gouvernement
     
-    liste.append(Legislatif("Dictateur",1,None))
+    gouvernement = Gouvernement(legislatif,executif,judiciaire)
 
-    liste.append(Executif("Dictateur",1,None))
+def propositionLegislatif(loi:object):
 
-    liste.append(Judiciaire("Dictateur",1,None))
+    acceptance = 0
+
+    for i in gouvernement.pouvoirs[0].membres:
+        #print("Personnage:",i.faction.positionnement[loi.axe],", Loi:",loi.positionnement)
+        if random.randint(0,100) <= fonctions.CalculsProbabilites(i.faction.positionnement[loi.axe],loi.positionnement) * variables.facteurAcceptationLegislatif:
+            acceptance += 1
+        else:
+            acceptance -= 1
+
+    if acceptance > 0:
+        print("LAW APPROVED BY LEGISLATIVE POWER : ", acceptance)
+        return(True)
+    else:
+        print("LAW REJECTED BY LEGISLATIVE POWER : ", acceptance)
+        return(False)
+
+def propositionExecutif(loi:object):
+
+    acceptance = 0
+
+    for i in gouvernement.pouvoirs[0].membres:
+        #print("Personnage:",i.faction.positionnement[loi.axe],", Loi:",loi.positionnement)
+        if random.randint(0,100) <= fonctions.CalculsProbabilites(i.faction.positionnement[loi.axe],loi.positionnement) * variables.facteurAcceptationExecutif:
+            acceptance += 1
+        else:
+            acceptance -= 1
+
+    if acceptance > 0:
+        print("LAW APPROVED BY EXECUTIVE POWER : ", acceptance)
+        return(True)
+    else:
+        print("LAW REJECTED BY EXECUTIVE POWER : ", acceptance)
+        return(False)
+
+def propositionJudiciaire(loi:object):
+
+    acceptance = 0
+
+    for i in gouvernement.pouvoirs[0].membres:
+        #print("Personnage:",i.faction.positionnement[loi.axe],", Loi:",loi.positionnement)
+        if random.randint(0,100) <= fonctions.CalculsProbabilites(i.faction.positionnement[loi.axe],loi.positionnement) * variables.facteurAcceptationJudiciaire:
+            acceptance += 1
+        else:
+            acceptance -= 1
+
+    if acceptance > 0:
+        print("LAW APPROVED BY JUDICIARY POWER : ", acceptance)
+        return(True)
+    else:
+        print("LAW REJECTED BY JUDICIARY POWER : ", acceptance)
+        return(False)

@@ -1,5 +1,4 @@
 
-
 liste = []
 
 class Comte():
@@ -12,5 +11,6 @@ class Comte():
         self.population = population
         self.classes = classes
         self.positionnement = positionnement
+        self.voisins = []
 
         liste.append(self)

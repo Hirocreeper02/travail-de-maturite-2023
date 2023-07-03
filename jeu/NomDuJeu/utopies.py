@@ -1,5 +1,6 @@
 
 
+index = {}
 liste = []
 
 class Utopie():
@@ -10,6 +11,8 @@ class Utopie():
         self.structure = structure
         self.lois = lois
         self.positionnement = positionnement
+
+        index[self.nom] = self
 
 def creation():
 

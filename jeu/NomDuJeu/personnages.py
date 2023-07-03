@@ -1,14 +1,17 @@
 import factions
 
+index = {}
 liste = []
 
 class Personnage():
 
-    def __init__(self, nom:str, faction:object, influence:int, age:int):
+    def __init__(self, nom:str, faction:str, influence:int, age:int):
 
         self.nom = nom
-        self.faction = faction
+        self.faction = factions.index[faction]
         self.influence = influence
         self.age = age
 
-        faction.membres.append(self)
+        self.faction.membres.append(self)
+
+        index[self.nom] = self
