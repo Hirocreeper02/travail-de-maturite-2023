@@ -12,5 +12,6 @@ class Faction():
         self.motto = motto
         self.membres = []
         self.utopie = utopie
+        self.finances = 0
 
         index[self.nom] = self

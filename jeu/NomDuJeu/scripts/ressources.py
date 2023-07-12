@@ -8,9 +8,9 @@ class Ressource():
     def __init__(self, nom:str, type:str, valeur:int,prerequis:object=None):
 
         self.nom = nom
-        self.type = type
         self.valeur = valeur
         self.prerequis = prerequis
+        self.type = {"Primaire":0,"Secondaire":1,"Luxe":2}[type]
 
         index[self.nom] = self
 

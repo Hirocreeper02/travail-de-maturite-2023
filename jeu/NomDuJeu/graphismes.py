@@ -1,1 +1,0 @@
-### C'est ici que sera plus tard organisé l'affichage graphique, pour l'instant il s'agira juste d'afficher des valeurs dans la console ###

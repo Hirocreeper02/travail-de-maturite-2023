@@ -13,4 +13,11 @@ class Comte():
         self.positionnement = positionnement
         self.voisins = []
 
+        for i in self.classes:
+            i = i / 100
+
         liste.append(self)
+
+    def verifierAllegance(self):
+
+        pass

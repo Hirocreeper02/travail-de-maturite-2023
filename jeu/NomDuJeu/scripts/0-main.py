@@ -3,6 +3,7 @@ import factions
 import gouvernements
 import lois
 import factions
+import finances
 
 initialisation.creationExemple()
 
@@ -13,6 +14,8 @@ def propositionLoi(loi:object):
     if (gouvernements.propositionLegislatif(loi) and gouvernements.propositionExecutif(loi) and gouvernements.propositionJudiciaire(loi)):
 
         print("LOI", loi.nom,"ACCEPTEE")
+
+        loi.application()
 
         return True
 
@@ -32,4 +35,13 @@ def testLoi(nombreEssais:int):
 
     print(test / (nombreEssais / 100) , "%")
 
-testLoi(1000)
+#propositionLoi(lois.index["Ordre et Progrès"])
+
+#testLoi(1)
+
+lois.index["Ordre et Progrès"].application()
+
+finances.collecterImpots()
+
+for i in factions.liste:
+    print(i.nom,":",i.finances,"$")
