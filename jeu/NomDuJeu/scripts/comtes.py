@@ -1,3 +1,7 @@
+import fonctions
+import factions
+
+import random
 
 liste = []
 
@@ -20,4 +24,15 @@ class Comte():
 
     def verifierAllegance(self):
 
-        pass
+        print("")
+        choix = [self.faction,fonctions.comparerGraphes(self.faction,self)]
+        print("")
+
+        for faction in factions.liste:
+            difference = fonctions.comparerGraphes(faction,self)
+            if difference < choix[1]:
+                choix = [faction,difference]
+
+        self.faction = choix[0]
+
+        print("\nLe comté",self.nom,"a décidé d'accorder sa fidélité à la faction:",self.faction.nom,"\n")

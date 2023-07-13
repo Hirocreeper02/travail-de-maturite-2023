@@ -1,14 +1,14 @@
-
+import lois
 
 index = {}
 liste = []
 
 class Utopie():
 
-    def __init__(self, nom:str, structure:object, lois:list, positionnement:list):
+    def __init__(self, nom:str, structure:list, lois:list, positionnement:list):
 
         self.nom = nom
-        self.structure = structure
+        self.structure = structure # [[N° Postes, Election],[N° Postes, Election],[N° Postes, Election]]
         self.lois = lois
         self.positionnement = positionnement
 
@@ -16,4 +16,4 @@ class Utopie():
 
 def creation():
 
-    liste.append(Utopie("Technocratie",None,None,[50,-50,-100,-50]))
+    liste.append(Utopie("Technocratie",[[100,None],[20,None],[12,None]],[lois.index["Ordre et Progrès"]],[50,-50,-100,-50]))

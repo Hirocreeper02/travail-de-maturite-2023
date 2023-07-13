@@ -4,6 +4,7 @@ import gouvernements
 import lois
 import factions
 import finances
+import comtes
 
 initialisation.creationExemple()
 
@@ -45,3 +46,5 @@ finances.collecterImpots()
 
 for i in factions.liste:
     print(i.nom,":",i.finances,"$")
+
+#comtes.list[0].verifierAllegance()
