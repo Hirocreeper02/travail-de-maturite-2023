@@ -2,6 +2,8 @@ import variables
 import comtes
 import factions
 
+import random
+
 def sgn(x):
 
     return x/abs(x)
@@ -28,3 +30,9 @@ def comparerGraphes(a,b):
     #print("La différence entre", a.nom, "et", b.nom,"est:",difference)
 
     return difference
+
+def fonctions(index):
+
+    res = random.choice(list(index.items()))
+
+    return(index[res[0]])

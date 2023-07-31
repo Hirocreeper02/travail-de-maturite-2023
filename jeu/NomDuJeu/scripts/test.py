@@ -3,20 +3,14 @@
 #print(f.read())
 
 
-import os
+import random
 
-path ="values"
-#we shall store all the file names in this list
-filelist = []
-
-for root, dirs, files in os.walk(path):
-	for file in files:
-        #append the file name to the list
-		filelist.append(os.path.join(root,file))
-
-#print all the file names
-for name in filelist:
-    print(name)
+test_dict = {'Gfg' : 1, 'is' : 2, 'best' : 3}
+ 
+#res = key, val = random.choice(list(test_dict.items()))
+res = random.choice(list(test_dict.items()))
+# printing result
+print("The random pair is : ", test_dict[res[0]])
 
 
 

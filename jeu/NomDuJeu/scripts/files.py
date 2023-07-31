@@ -1,4 +1,5 @@
 import os
+import random
 
 index = {}
 
@@ -18,6 +19,10 @@ def read(filePath):
         fileData[i] = fileData[i].replace("\n","")
 
     return fileData
+
+def nomAleatoire(filePath):
+     
+    return random.choice(read(filePath))
 
 collectFiles()
 
