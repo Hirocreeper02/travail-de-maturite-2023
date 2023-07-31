@@ -1,5 +1,4 @@
 import provinces
-import comtes
 import variables
 
 index = {}

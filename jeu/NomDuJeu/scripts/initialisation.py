@@ -1,4 +1,3 @@
-import comtes
 import factions
 import graphismes
 import lois
@@ -25,9 +24,9 @@ def creation(noFactions:int, noPersonnages:int, noProvinces:int, noComtes:int):
 
     # Créer des factions et comtés aléatoires #
 
-    factions.creation(noFactions)
+    factions.creation(noFactions,noPersonnages)
 
-    personnages.creation(noFactions,noPersonnages)
+    provinces.creation(noProvinces,noComtes,noFactions)
     
 
 

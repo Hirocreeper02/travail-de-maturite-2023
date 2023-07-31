@@ -1,6 +1,13 @@
 import pygame
 import sys
 
+### MAIN ###
+
+tickSpeed = 1
+facteurFonctionsB = 4
+facteurFonctionsC = 10
+
+
 ### GOUVENEMENTS ###
 seuilDeReussiteLegislatif = 1
 seuilDeReussiteExecutif = 1

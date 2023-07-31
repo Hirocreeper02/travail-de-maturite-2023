@@ -1,19 +1,14 @@
 import initialisation
-import factions
+import provinces
 import gouvernements
 import lois
 import factions
 import finances
-import comtes
 import debug
+import variables
 
 import time
 
-tickSpeed = 1
-
-facteurFonctionsB = 4
-
-facteurFonctionsC = 10
 
 def propositionLoi(loi:object):
 
@@ -62,7 +57,7 @@ def routine():
     #while True:
     while True:
 
-        time.sleep(tickSpeed)
+        time.sleep(variables.tickSpeed)
 
         debug.afficherFonctions(tick)
         
@@ -70,13 +65,13 @@ def routine():
 
         # FONCTIONS B #
 
-        if tick % facteurFonctionsB == 0:
+        if tick % variables.facteurFonctionsB == 0:
 
             pass
 
         # FONCTIONS C #
 
-        if tick % facteurFonctionsC == 0:
+        if tick % variables.facteurFonctionsC == 0:
 
             finances.collecterImpots()
 
@@ -85,6 +80,8 @@ def routine():
 def start():
 
     initialisation.creation(4,15,5,20)
+
+    debug.afficherStart()
 
     routine()
 

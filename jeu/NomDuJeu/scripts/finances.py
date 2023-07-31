@@ -1,13 +1,12 @@
 import provinces
-import comtes
 import variables
 import factions
 import debug
 
 def collecterImpots():
 
-    for prov in provinces.liste:
-            for comt in prov.comtes:
+    for key in provinces.index:
+            for comt in provinces.index[key].comtes:
                 for strate in range(3):
                     comt.faction.finances += comt.population * comt.classes[strate] * variables.tauxImposition
 
