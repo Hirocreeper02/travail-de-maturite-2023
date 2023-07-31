@@ -5,8 +5,8 @@ import fonctions
 index = {}
 liste = []
 
-nameIndex = {utopies.index["Technocratie"]:"technocratie.txt"}
-mottoIndex = {utopies.index["Technocratie"]:"mottos_technocratie.txt"}
+nameIndex = {}
+mottoIndex = {}
 
 class Faction():
 
@@ -20,12 +20,19 @@ class Faction():
         self.finances = 0
 
         index[self.nom] = self
+    
+    def __repr__(self):
+        return f"{self.nom}"
 
 def creation(nombreDeFactions):
 
+    nameIndex = {utopies.index["Technocratie"]:files.index["technocratisme.txt"]}
+    mottoIndex = {utopies.index["Technocratie"]:"mottos_technocratisme.txt"}
+
+
     for i in range(nombreDeFactions):
 
-        utopie = fonctions.elementAleatoire(index)
+        utopie = fonctions.elementAleatoire(utopies.index)
 
         while True:
             nom = files.nomAleatoire(nameIndex[utopie])

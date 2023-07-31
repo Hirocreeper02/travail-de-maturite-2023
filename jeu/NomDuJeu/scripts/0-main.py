@@ -6,7 +6,7 @@ import factions
 import finances
 import comtes
 
-initialisation.creationExemple()
+initialisation.creation(4,15,5,20)
 
 def propositionLoi(loi:object):
 

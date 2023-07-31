@@ -2,18 +2,10 @@
 
 #print(f.read())
 
+myDict = {"a":1,"b":2,"c":3}
 
-import random
-
-test_dict = {'Gfg' : 1, 'is' : 2, 'best' : 3}
- 
-#res = key, val = random.choice(list(test_dict.items()))
-res = random.choice(list(test_dict.items()))
-# printing result
-print("The random pair is : ", test_dict[res[0]])
-
-
-
+for i in myDict:
+    print(myDict[i])
 
 #import glob
 

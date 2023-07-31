@@ -26,7 +26,7 @@ def nomAleatoire(filePath):
 
 collectFiles()
 
-print(read(index["noms.txt"]))
+#print(read(index["noms.txt"]))
 
 #"noms.txt":open("values/noms/personnages/noms.txt","r")
 

@@ -25,6 +25,13 @@ def creation(noFactions:int, noPersonnages:int, noProvinces:int, noComtes:int):
 
     # Créer des factions et comtés aléatoires #
 
+    factions.creation(noFactions)
+
+    personnages.creation(noFactions,noPersonnages)
+    
+
+
+
 def creationExemple():
 
     creationPreetablies()
