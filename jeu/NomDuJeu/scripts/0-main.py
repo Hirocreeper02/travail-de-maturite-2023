@@ -5,8 +5,15 @@ import lois
 import factions
 import finances
 import comtes
+import debug
 
-initialisation.creation(4,15,5,20)
+import time
+
+tickSpeed = 1
+
+facteurFonctionsB = 4
+
+facteurFonctionsC = 10
 
 def propositionLoi(loi:object):
 
@@ -39,11 +46,46 @@ def testLoi(nombreEssais:int):
 #propositionLoi(lois.index["Ordre et Progrès"])
 
 
-lois.index["Ordre et Progrès"].application()
+#lois.index["Ordre et Progrès"].application()
 
-finances.collecterImpots()
+#finances.collecterImpots()
 
-for i in factions.liste:
-    print(i.nom,":",i.finances,"$")
+#for i in factions.liste:
+#    print(i.nom,":",i.finances,"$")
 
 #comtes.list[0].verifierAllegance()
+
+def routine():
+
+    tick = 0
+
+    #while True:
+    while True:
+
+        time.sleep(tickSpeed)
+
+        debug.afficherFonctions(tick)
+        
+        # FONCTIONS A # 
+
+        # FONCTIONS B #
+
+        if tick % facteurFonctionsB == 0:
+
+            pass
+
+        # FONCTIONS C #
+
+        if tick % facteurFonctionsC == 0:
+
+            finances.collecterImpots()
+
+        tick += 1
+
+def start():
+
+    initialisation.creation(4,15,5,20)
+
+    routine()
+
+start()
