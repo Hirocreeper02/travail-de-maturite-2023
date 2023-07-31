@@ -1,4 +1,4 @@
-import variables
+"""import variables
 
 import pygame
  
@@ -44,4 +44,4 @@ while (status):
                     print("LEFT") 
 pygame.quit()
 
-#https://www.geeksforgeeks.org/python-display-images-with-pygame/
+#https://www.geeksforgeeks.org/python-display-images-with-pygame/"""

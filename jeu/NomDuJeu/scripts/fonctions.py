@@ -25,6 +25,6 @@ def comparerGraphes(a,b):
 
         difference += abs(a.positionnement[i] - b.positionnement[i])
 
-    print("La différence entre", a.nom, "et", b.nom,"est:",difference)
+    #print("La différence entre", a.nom, "et", b.nom,"est:",difference)
 
     return difference

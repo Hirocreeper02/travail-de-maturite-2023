@@ -38,7 +38,6 @@ def testLoi(nombreEssais:int):
 
 #propositionLoi(lois.index["Ordre et Progrès"])
 
-#testLoi(1)
 
 lois.index["Ordre et Progrès"].application()
 

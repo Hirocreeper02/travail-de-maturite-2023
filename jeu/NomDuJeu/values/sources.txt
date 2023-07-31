@@ -1,0 +1,13 @@
+noms/personnages/prenoms_masculins: https://fr.wikipedia.org/wiki/Calendrier_des_saints_en_France, consulté le 31.07.2023
+noms/personnages/prenoms_feminins: https://fr.wikipedia.org/wiki/Calendrier_des_saints_en_France, consulté le 31.07.2023
+noms/personnages/noms: https://www.geneanet.org/genealogie/, consulté le 31.07.2023
+noms/factions/absolutisme: https://chat.openai.com/, GPT 3.5, "Bonjour, génère moi 100 noms de parti absolusiste", prompt du 31.07.2023
+noms/factions/anarcho-capitalisme: https://chat.openai.com/, GPT 3.5, "Bonjour, génère moi 100 noms de parti anarcho-capitaliste", prompt du 31.07.2023
+noms/factions/anarcho-communisme: https://chat.openai.com/, GPT 3.5, "Bonjour, génère moi 100 noms de parti anarcho-communiste", prompt du 31.07.2023
+noms/factions/capitalisme: https://chat.openai.com/, GPT 3.5, "Bonjour, génère moi 100 noms de parti capitaliste", prompt du 31.07.2023
+noms/factions/communisme: https://chat.openai.com/, GPT 3.5, "Bonjour, génère moi 100 noms de parti communiste", prompt du 31.07.2023
+noms/factions/revolutionnarisme: https://chat.openai.com/, GPT 3.5, "Bonjour, génère moi 100 noms de parti révolutionnariste", prompt du 31.07.2023
+noms/factions/technocratisme: https://chat.openai.com/, GPT 3.5, "Bonjour, génère moi 100 noms de parti technocratique", prompt du 31.07.2023
+noms/factions/theocratisme: https://chat.openai.com/, GPT 3.5, "Bonjour, génère moi 100 noms de parti théologiste", prompt du 31.07.2023
+noms/territoires/provinces: https://fr.wikipedia.org/wiki/Liste_des_provinces_romaines, consulté le 31.07.2023
+noms/territoires/comtes: https://www.commune-mairie.fr/les-100-plus-petites-villes-de-france/,  consulté le 31.07.2023
