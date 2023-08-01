@@ -1,7 +1,6 @@
 import utopies
 import files
 import fonctions
-import factions
 
 import random
 
@@ -64,11 +63,9 @@ def creation(nombreDeFactions,nombreDePersonnages):
 
     repartition = fonctions.repartitionInegale(nombreDePersonnages,nombreDeFactions)
 
-    print("FACTIONS: ",factions.index,"| REPARTITION: ",repartition)
-
     i = 0
 
-    for key in factions.index:
+    for key in index:
 
         for j in range(repartition[i]):
 
@@ -82,6 +79,6 @@ def creation(nombreDeFactions,nombreDePersonnages):
 
             age = random.randint(20,80)
 
-            factions.index[key].membres.append(Personnage(nom,factions.index[key],influence,age))
+            index[key].membres.append(Personnage(nom,index[key],influence,age))
 
         i += 1

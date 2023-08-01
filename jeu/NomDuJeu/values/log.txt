@@ -1,0 +1,54 @@
+
+
+######################################################
+########## = [2023-08-01 13:45:30.281685] = ##########
+#####################################################
+
+START| PHASE D'INITIALISATION 
+   - Parti pour la Planification Éclairée: Technocratie, 4 membres 
+   - Front Technocratique pour l'Innovation: Technocratie, 5 membres 
+   - Front Technocratique Moderne: Technocratie, 5 membres 
+   - Parti Technocratique Progressiste: Technocratie, 1 membres 
+  P̲e̲r̲s̲o̲n̲n̲a̲g̲e̲s̲:̲
+   - [Parti pour la Planification Éclairée] Gabin HUMBERT, 18 d'influence 
+   - [Parti pour la Planification Éclairée] Thierry MATHIEU, 34 d'influence 
+   - [Parti pour la Planification Éclairée] Joachim ROUX, 82 d'influence 
+   - [Parti pour la Planification Éclairée] Guy LECLERC, 48 d'influence 
+   - [Front Technocratique pour l'Innovation] Hyacinthe LEMAIRE, 46 d'influence 
+   - [Front Technocratique pour l'Innovation] Émile LECLERCQ, 84 d'influence 
+   - [Front Technocratique pour l'Innovation] Étienne BERTRAND, 20 d'influence 
+   - [Front Technocratique pour l'Innovation] Jean JOLY, 83 d'influence 
+   - [Front Technocratique pour l'Innovation] Grégoire BLANC, 92 d'influence 
+   - [Front Technocratique Moderne] Kévin BOUCHER, 62 d'influence 
+   - [Front Technocratique Moderne] Séverin LEROY, 21 d'influence 
+   - [Front Technocratique Moderne] Jean-Marie HUMBERT, 18 d'influence 
+   - [Front Technocratique Moderne] Michel COUSIN, 28 d'influence 
+   - [Front Technocratique Moderne] Émile BARBIER, 78 d'influence 
+   - [Parti Technocratique Progressiste] François FABRE, 46 d'influence 
+0| FONCTIONS A, FONCTIONS B, FONCTIONS C
+  F̲i̲n̲a̲n̲c̲e̲s̲:̲
+   - Parti pour la Planification Éclairée: 0 $ 
+   - Front Technocratique pour l'Innovation: 0 $ 
+   - Front Technocratique Moderne: 0 $ 
+   - Parti Technocratique Progressiste: 0 $ 
+1| FONCTIONS A
+2| FONCTIONS A
+3| FONCTIONS A
+4| FONCTIONS A, FONCTIONS B
+5| FONCTIONS A
+6| FONCTIONS A
+7| FONCTIONS A
+8| FONCTIONS A, FONCTIONS B
+9| FONCTIONS A
+10| FONCTIONS A, FONCTIONS C
+  F̲i̲n̲a̲n̲c̲e̲s̲:̲
+   - Parti pour la Planification Éclairée: 0 $ 
+   - Front Technocratique pour l'Innovation: 0 $ 
+   - Front Technocratique Moderne: 0 $ 
+   - Parti Technocratique Progressiste: 0 $ 
+11| FONCTIONS A
+12| FONCTIONS A, FONCTIONS B
+13| FONCTIONS A
+14| FONCTIONS A
+15| FONCTIONS A
+16| FONCTIONS A, FONCTIONS B

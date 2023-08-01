@@ -1,6 +1,4 @@
 import variables
-import comtes
-#import factions
 
 import random
 

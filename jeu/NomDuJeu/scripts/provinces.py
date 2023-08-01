@@ -10,7 +10,7 @@ class Province():
 
         self.nom = nom
         self.faction = faction
-        self.comtes = []
+        self.comtes = {}
 
         index[self.nom] = self
 
@@ -44,16 +44,39 @@ class Comte():
 
         print("\nLe comté",self.nom,"a décidé d'accorder sa fidélité à la faction:",self.faction.nom,"\n")
 
-def creation(noProvinces:int,noComtes:int,noFactions:int):
+def creation(noProvinces:int,noComtes:int):
+
+    repartitionComtes = fonctions.repartitionInegale(noComtes,noProvinces)
+
+    print("REPARTITION COMTES : ", repartitionComtes)
 
     for i in range(noProvinces):
 
         while True:
-            nom = files.nomAleatoire(files.index["provinces"])
+            nom = files.nomAleatoire(files.index["provinces.txt"])
 
             if nom != index.keys():
                 break
 
-        faction = None
+        faction = fonctions.elementAleatoire(factions.index)
 
-        index{nom} = Province(nom,faction)
+        index[nom] = Province(nom,faction)
+
+        for j in range(repartitionComtes[i]):
+
+            while True:
+
+                nomComte = files.nomAleatoire(files.index["comtes.txt"])
+
+                if nomComte != index.keys():
+                    break
+
+            ressource = None
+
+            population = 100
+
+            classes = [33,33,33]
+
+            positionnement = [0,0,0,0]
+
+            index[nom].comtes[nomComte] = Comte(nomComte,faction,ressource,population,classes,positionnement)

@@ -1,7 +1,6 @@
 import factions
 import graphismes
 import lois
-import personnages
 import provinces
 import ressources
 import utopies
@@ -22,15 +21,13 @@ def creation(noFactions:int, noPersonnages:int, noProvinces:int, noComtes:int):
     
     creationPreetablies()
 
-    # Créer des factions et comtés aléatoires #
-
     factions.creation(noFactions,noPersonnages)
 
-    provinces.creation(noProvinces,noComtes,noFactions)
+    provinces.creation(noProvinces,noComtes)
     
 
 
-
+"""
 def creationExemple():
 
     creationPreetablies()
@@ -134,3 +131,5 @@ def creationExemple():
     #print("provinces: ",provinces.index)
     #print("ressources: ",ressources.index)
     #print("utopies: ",utopies.index)
+
+"""
