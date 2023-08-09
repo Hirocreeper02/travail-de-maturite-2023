@@ -4,6 +4,7 @@
 
 # create a Perlin texture in 2D
 
+""""
 import numpy as np
 import matplotlib.pyplot as plot
 
@@ -52,6 +53,8 @@ x, y = np.meshgrid(lin_array, lin_array)
 plot.imshow(perlin(x, y, seed=2), origin = 'upper')
 
 plot.show()
+
+"""
 
 #import glob
 

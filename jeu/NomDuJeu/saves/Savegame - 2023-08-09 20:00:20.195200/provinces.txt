@@ -1,0 +1,25 @@
+{'Piazzali': Piazzali, 'Pradelle': Pradelle, 'Aulan': Aulan} {
+{'Pradelle': Pradelle, 'Trébons de Luchon': Trébons de Luchon, 'Aigremont': Aigremont, 'Baulny': Baulny, 'Oulles': Oulles, 'Aingoulaincourt': Aingoulaincourt} {
+{'Artigues': Artigues} {
+{'Saccourvielle': Saccourvielle, 'Oulles': Oulles, 'Menesble': Menesble, 'Molring': Molring, 'Piedipartino': Piedipartino} {
+{'Vauquois': Vauquois} {
+   comtes = {'Vauquois': Vauquois}
+   faction = Parti des Innovateurs Technologiques
+}
+
+   comtes = {'Saccourvielle': Saccourvielle, 'Oulles': Oulles, 'Menesble': Menesble, 'Molring': Molring, 'Piedipartino': Piedipartino}
+   faction = Mouvement pour la Gouvernance Rationnelle
+}
+
+   comtes = {'Artigues': Artigues}
+   faction = Mouvement pour la Gouvernance Rationnelle
+}
+
+   comtes = {'Pradelle': Pradelle, 'Trébons de Luchon': Trébons de Luchon, 'Aigremont': Aigremont, 'Baulny': Baulny, 'Oulles': Oulles, 'Aingoulaincourt': Aingoulaincourt}
+   faction = Parti des Innovateurs Technologiques
+}
+
+   comtes = {'Piazzali': Piazzali, 'Pradelle': Pradelle, 'Aulan': Aulan}
+   faction = Mouvement pour la Gouvernance Rationnelle
+}
+

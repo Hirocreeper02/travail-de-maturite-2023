@@ -1,0 +1,11 @@
+charbon {
+    valeur = 1
+    type = "Primaire"
+    prerequis = None
+}
+
+fer {
+    valeur = 1
+    type = "Primaire"
+    prerequis = None
+}

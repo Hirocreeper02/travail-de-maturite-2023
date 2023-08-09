@@ -33,7 +33,7 @@ class Personnage():
         self.age = age
 
     def __repr__(self):
-        return f"{self.nom} ({self.faction})"
+        return f"{self.nom}"
 
 def creation(nombreDeFactions,nombreDePersonnages):
 

@@ -1,0 +1,32 @@
+0 {
+0 {
+0 {
+0 {
+   finances = 0
+   membres = [Jean-François LEGER, Silvère GAUTHIER, Didier CHARPENTIER]
+   motto = mottos_technocratisme.txt
+   positionnement = [0, 0, 0, 0]
+   utopie = Technocratie
+}
+
+   finances = 0
+   membres = [Robert ROY]
+   motto = mottos_technocratisme.txt
+   positionnement = [0, 0, 0, 0]
+   utopie = Technocratie
+}
+
+   finances = 0
+   membres = [Bérenger DUMAS, Pascal BENOIT]
+   motto = mottos_technocratisme.txt
+   positionnement = [0, 0, 0, 0]
+   utopie = Technocratie
+}
+
+   finances = 0
+   membres = [Pierre PETIT]
+   motto = mottos_technocratisme.txt
+   positionnement = [0, 0, 0, 0]
+   utopie = Technocratie
+}
+

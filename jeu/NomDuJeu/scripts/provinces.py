@@ -12,7 +12,10 @@ class Province():
         self.faction = faction
         self.comtes = {}
 
-        index[self.nom] = self
+        #index[self.nom] = self
+
+    def __repr__(self):
+        return f"{self.nom}"
 
 class Comte():
 
@@ -28,6 +31,9 @@ class Comte():
 
         for i in self.classes:
             i = i / 100
+
+    def __repr__(self):
+        return f"{self.nom}"
 
     def verifierAllegance(self):
 

@@ -1,0 +1,32 @@
+Front pour la Gouvernance Éthique {
+   finances = 0
+   membres = [Thibaut PREVOST, Victor BAILLY]
+   motto = mottos_technocratisme.txt
+   positionnement = [0, 0, 0, 0]
+   utopie = Technocratie
+}
+
+Parti des Professionnels Technologiques {
+   finances = 0
+   membres = [Nestor CARPENTIER, Irénée MOULIN, Désiré MEYER, Édith ROLLAND, Aymard BOULANGER]
+   motto = mottos_technocratisme.txt
+   positionnement = [0, 0, 0, 0]
+   utopie = Technocratie
+}
+
+Parti Technocratique Progressiste {
+   finances = 0
+   membres = [Augustin DESCHAMPS]
+   motto = mottos_technocratisme.txt
+   positionnement = [0, 0, 0, 0]
+   utopie = Technocratie
+}
+
+Parti des Technocrates Proactifs {
+   finances = 0
+   membres = [Christian ROBERT, Hyacinthe HUET]
+   motto = mottos_technocratisme.txt
+   positionnement = [0, 0, 0, 0]
+   utopie = Technocratie
+}
+

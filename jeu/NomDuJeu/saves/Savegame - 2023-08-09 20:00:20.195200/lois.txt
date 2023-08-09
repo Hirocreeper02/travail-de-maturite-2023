@@ -1,0 +1,7 @@
+2 {
+   axe = 2
+   effets = None
+   impact = [[0, 0, 0], [5, 10, -1], [3, 5, -4]]
+   positionnement = -50
+}
+

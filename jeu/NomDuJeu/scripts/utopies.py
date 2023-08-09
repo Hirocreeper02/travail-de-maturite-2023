@@ -14,6 +14,9 @@ class Utopie():
 
         index[self.nom] = self
 
+    def __repr__(self):
+        return f"{self.nom}"
+
 def creation():
 
     liste.append(Utopie("Technocratie",[[100,None],[20,None],[12,None]],[lois.index["Ordre et Progrès"]],[50,-50,-100,-50]))

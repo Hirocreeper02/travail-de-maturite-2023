@@ -16,6 +16,9 @@ class Loi():
 
         index[self.nom] = self
 
+    def __repr__(self):
+        return f"{self.nom}"
+
     def application(self):
 
         for prov in provinces.liste:

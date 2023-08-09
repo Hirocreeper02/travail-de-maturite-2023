@@ -1,0 +1,20 @@
+Vénétie et Istrie {
+   comtes = {'Ourdon': Ourdon, 'Leménil Mitry ': Leménil Mitry , 'Aucelon': Aucelon, 'Valmigère': Valmigère, 'Pommerol': Pommerol, 'Aulan': Aulan, 'Orret': Orret, 'Epécamps': Epécamps}
+   faction = Parti des Technocrates Proactifs
+}
+
+Hæmimont {
+   comtes = {'Baren': Baren}
+   faction = Parti des Professionnels Technologiques
+}
+
+Osroène {
+   comtes = {'Cirès': Cirès, "Bourg d'Oueil": Bourg d'Oueil}
+   faction = Parti des Technocrates Proactifs
+}
+
+Pannonie {
+   comtes = {'Aucelon': Aucelon, 'Billière': Billière}
+   faction = Parti des Professionnels Technologiques
+}
+

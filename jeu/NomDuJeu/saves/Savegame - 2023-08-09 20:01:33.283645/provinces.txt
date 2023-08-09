@@ -1,0 +1,25 @@
+Pisidie {
+Égypte Herculia {
+Savie {
+Dardanie {
+Lucanie et Bruttium {
+   comtes = {'Baren': Baren}
+   faction = Front Technocratique pour l'Innovation
+}
+
+   comtes = {'Campagna de Sault': Campagna de Sault, 'La Haute Beaume': La Haute Beaume}
+   faction = Front Technocratique pour l'Innovation
+}
+
+   comtes = {'Goulles': Goulles, 'Bruys': Bruys, 'Beaufin': Beaufin}
+   faction = Parti des Innovateurs Technologiques
+}
+
+   comtes = {'Casterets': Casterets, 'Terroles': Terroles, 'Pradelle': Pradelle, 'Maroncourt': Maroncourt, 'Campagna de Sault': Campagna de Sault, 'Moissy Moulinot': Moissy Moulinot}
+   faction = Front Technocratique pour l'Innovation
+}
+
+   comtes = {'Saint Céols': Saint Céols, 'Blanzée': Blanzée, 'Archail': Archail}
+   faction = Parti des Experts en Gestion
+}
+

@@ -12,6 +12,9 @@ class Pouvoir():
         self.nomination = nomination
         self.membres = []
 
+    def __repr__(self):
+        return f"{self.nom}"
+
 class Legislatif(Pouvoir):
 
     pass

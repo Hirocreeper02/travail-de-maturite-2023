@@ -6,6 +6,8 @@ import factions
 import finances
 import debug
 import variables
+import save
+import load
 
 import time
 
@@ -83,6 +85,8 @@ def start():
 
     debug.afficherStart()
 
-    routine()
+    #routine()
+
+    save.saveGame()
 
 start()
