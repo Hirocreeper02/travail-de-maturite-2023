@@ -3,9 +3,7 @@ import gouvernements
 import lois
 import provinces
 import ressources
-import terrain
 import utopies
-import load
 
 import inspect
 import os

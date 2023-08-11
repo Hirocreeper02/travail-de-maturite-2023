@@ -54,7 +54,74 @@ plot.imshow(perlin(x, y, seed=2), origin = 'upper')
 
 plot.show()
 
+###
+
+import os
+
+for root, dirs, files in os.walk("saves/Savegame - 2023-08-09 20:04:00.511824"):
+	    for file in files:
+		    #index[os.path.basename(file)] = os.path.join(root,file) 
+		    #print(os.path.basename(file).replace(".txt",""))
+
+            print(os.path.basename(file))
+
+### 
+
+file = "hello.txt"
+
+fileIndex = file.split("/")[-1]
+
+print(fileIndex)
+                   
+
 """
+
+"""
+from typing import List
+
+# Vector is a list of float values
+Vector = List[float]
+
+def scale(scalar: float, vector: Vector) -> Vector:
+    return [scalar * num for num in vector]
+
+a = scale(scalar=2.0, vector=7)
+print(a)
+
+"""
+
+from typing import get_type_hints
+
+class Person:
+    name: str; age: int; a = 6
+
+    def __init__(self,name:str,age:int):
+        self.name = name
+        self.age = age
+
+print(get_type_hints(Person))
+
+class Ressource():
+    nom:str; type:str; valeur:int; prerequis:object
+
+    def __init__(self, nom:str, type:str, valeur:int,prerequis:object=None):
+
+        self.nom = nom
+        self.valeur = valeur
+        self.prerequis = prerequis
+        self.type = {"Primaire":0,"Secondaire":1,"Luxe":2}[type]
+
+    def __repr__(self):
+        return f"{self.nom}"
+    
+Jean = Person("HI",5)
+    
+typeHints = get_type_hints(Person)
+
+
+
+# returns {'name': <class 'str'>, 'age': <class 'int'>}
+
 
 #import glob
 

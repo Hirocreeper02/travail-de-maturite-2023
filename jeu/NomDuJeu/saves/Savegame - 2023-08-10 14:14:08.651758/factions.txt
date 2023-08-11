@@ -1,30 +1,30 @@
-0 {
-0 {
-0 {
-0 {
+Parti des Technocrates Engagés {
    finances = 0
-   membres = [Jean-François LEGER, Silvère GAUTHIER, Didier CHARPENTIER]
+   membres = [Matthieu COLIN, Hubert BERGER, Christophe COLIN, Gabin FONTAINE]
    motto = mottos_technocratisme.txt
    positionnement = [0, 0, 0, 0]
    utopie = Technocratie
 }
 
+Parti pour la Planification Éclairée {
    finances = 0
-   membres = [Robert ROY]
+   membres = [Bernard BESSON, Urbain ROGER, Alphonse PIERRE, Marc CLEMENT]
    motto = mottos_technocratisme.txt
    positionnement = [0, 0, 0, 0]
    utopie = Technocratie
 }
 
+Coalition pour l'Excellence Technologique {
    finances = 0
-   membres = [Bérenger DUMAS, Pascal BENOIT]
+   membres = [Cyprien ROYER, François MICHEL, Xavier BARBIER]
    motto = mottos_technocratisme.txt
    positionnement = [0, 0, 0, 0]
    utopie = Technocratie
 }
 
+Coalition Technocratique Pragmatique {
    finances = 0
-   membres = [Pierre PETIT]
+   membres = [Joël LEBRUN, Georges LEROY]
    motto = mottos_technocratisme.txt
    positionnement = [0, 0, 0, 0]
    utopie = Technocratie

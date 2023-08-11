@@ -1,6 +1,0 @@
-[Ordre et Progrès] {
-   lois = [Ordre et Progrès]
-   positionnement = [50, -50, -100, -50]
-   structure = [[100, None], [20, None], [12, None]]
-}
-

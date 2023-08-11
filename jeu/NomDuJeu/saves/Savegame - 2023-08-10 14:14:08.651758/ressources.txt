@@ -1,52 +1,52 @@
-Habits {
-Bijouterie {
-Laine {
-Armes {
-Nourriture {
-Or {
-Diamant {
-Ficelle {
 Fer {
    prerequis = None
    type = 0
    valeur = 1
 }
 
+Ficelle {
    prerequis = None
    type = 0
    valeur = 1
 }
 
+Diamant {
    prerequis = None
    type = 0
    valeur = 1
 }
 
+Or {
    prerequis = None
    type = 0
    valeur = 1
 }
 
+Nourriture {
    prerequis = None
    type = 0
    valeur = 1
 }
 
+Armes {
    prerequis = Fer
    type = 1
    valeur = 1
 }
 
+Laine {
    prerequis = Ficelle
    type = 1
    valeur = 1
 }
 
+Bijouterie {
    prerequis = Diamant
    type = 2
    valeur = 1
 }
 
+Habits {
    prerequis = Laine
    type = 1
    valeur = 1

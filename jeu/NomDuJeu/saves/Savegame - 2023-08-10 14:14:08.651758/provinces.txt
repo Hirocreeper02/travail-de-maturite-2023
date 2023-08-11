@@ -1,0 +1,25 @@
+Maurétanie sitifienne	 {
+   comtes = {'Valmigère': Valmigère, 'Oreilla': Oreilla, 'Sode': Sode}
+   faction = Parti des Technocrates Engagés
+}
+
+Narbonnaise {
+   comtes = {'Bestiac': Bestiac, 'Bruys': Bruys, 'Mérona': Mérona, 'Baren': Baren}
+   faction = Coalition pour l'Excellence Technologique
+}
+
+Apulie et Calabre {
+   comtes = {'Epécamps': Epécamps, 'Piedipartino': Piedipartino, 'Vérignon': Vérignon}
+   faction = Parti des Technocrates Engagés
+}
+
+Épire ancienne {
+   comtes = {'Curmont': Curmont, 'Causse Bégon': Causse Bégon}
+   faction = Coalition Technocratique Pragmatique
+}
+
+Lydie {
+   comtes = {'Menesble': Menesble, 'Tarrano': Tarrano, 'Saint Céols': Saint Céols, 'Cunel': Cunel, 'Ourdon': Ourdon}
+   faction = Parti pour la Planification Éclairée
+}
+

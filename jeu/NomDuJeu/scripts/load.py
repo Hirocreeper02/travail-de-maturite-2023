@@ -1,6 +1,17 @@
+import factions
+import gouvernements
+import lois
+import provinces
 import ressources
+import utopies
 
-createObjects = {"file.txt":ressources.creationDeterminee}
+import os
+
+from typing import get_type_hints # Permet de savoir le Type Hinting de chaque attribut ou variable
+
+#createObjects = {"file.txt":ressources.creationDeterminee}
+
+createObjects = {"factions.txt":factions.creationDeterminee,"lois.txt":lois.creationDeterminee,"provinces.txt":provinces.creationDeterminee,"ressources.txt":ressources.creationDeterminee,"utopies.txt":utopies.creationDeterminee}
 
 def openFile(file:str):
 
@@ -65,7 +76,7 @@ def readInfo(cells:list,template:list):
 
     return cells
 
-def Load(file:str):
+def load(file:str):
 
     fileData = openFile(file)
 
@@ -74,4 +85,18 @@ def Load(file:str):
 
     infos = readInfo(cells,template)
 
-    createObjects[file](infos)
+    fileIndex = file.split("/")[-1] # Ignorer le chemin d'accès, juste garder le nom du fichier
+
+    createObjects[fileIndex](infos)
+
+#####
+
+def loadGame(saveName:str):
+
+    saveName = "saves/" + saveName
+
+    for root, dirs, files in os.walk(saveName):  
+             
+	    for file in files:
+
+            load(saveName + "/" + os.path.basename(file))

@@ -1,5 +1,4 @@
 import factions
-import graphismes
 import lois
 import provinces
 import ressources

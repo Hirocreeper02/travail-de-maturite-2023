@@ -11,14 +11,14 @@ mottoIndex = {}
 
 class Faction():
 
-    def __init__(self, nom:str, utopie:object, positionnement:list, motto:str):
+    def __init__(self, nom:str, utopie:object, positionnement:list, motto:str, finances:int = 0, membres:list = []):
 
         self.nom = nom
         self.positionnement = positionnement
         self.motto = motto
-        self.membres = []
+        self.membres = membres
         self.utopie = utopie
-        self.finances = 0
+        self.finances = finances
     
     def __repr__(self):
         return f"{self.nom}"
@@ -82,3 +82,16 @@ def creation(nombreDeFactions,nombreDePersonnages):
             index[key].membres.append(Personnage(nom,index[key],influence,age))
 
         i += 1
+
+def creationDeterminee(infos):
+    
+    for i in range(len(infos)):
+
+        nom = infos[i][0]
+        positionnement = infos[i][1]
+        motto = infos[i][2]
+        membres = infos[i][3]
+        utopie = utopies.index[infos[i][4]]
+        finances = int(infos[i][5])
+
+        index[nom] = Faction(nom,utopie,positionnement,motto,finances,membres)
