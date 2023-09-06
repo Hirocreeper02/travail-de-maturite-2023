@@ -6,8 +6,12 @@ import factions
 import finances
 import debug
 import variables
-import save
-import load
+#import save
+#import load
+
+import sys
+sys.path.append('scripts/engine')
+import mainEngine
 
 import time
 
@@ -87,6 +91,10 @@ def start():
 
     #routine()
 
-    save.saveGame()
+    #save.saveGame()
+
+    mainEngine.Run()
+
+
 
 start()

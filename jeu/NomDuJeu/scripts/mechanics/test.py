@@ -90,6 +90,9 @@ print(a)
 
 """
 
+
+"""
+
 from typing import get_type_hints
 
 class Person:
@@ -118,6 +121,30 @@ Jean = Person("HI",5)
     
 typeHints = get_type_hints(Person)
 
+"""
+
+def fun():
+    a=10
+    b=3.14
+    s="Hello"
+    x=True
+    
+    print(dir())
+
+fun()
+
+import ressources
+
+def getObjects(library):
+
+    dirList = dir(library)
+
+    for i in range(len(dirList)):
+
+        print(dirList[i],":",type(dirList[i]))
+
+
+getObjects(ressources)
 
 
 # returns {'name': <class 'str'>, 'age': <class 'int'>}

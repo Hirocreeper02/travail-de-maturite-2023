@@ -1,11 +1,11 @@
 
-
 index = {}
 liste = []
 
 class Ressource():
+    nom:str; type:str; valeur:int; prerequis:object
 
-    def __init__(self, nom:str, type:str, valeur:int,prerequis:object=None):
+    def __init__(self, nom:str = "Nom de la ressource", type:str = "Luxe", valeur:int = 1,prerequis:object = None):
 
         self.nom = nom
         self.valeur = valeur
@@ -47,5 +47,3 @@ def creationDeterminee(infos):
         index[nom] = Ressource(nom,type,valeur,prerequis)
 
     print(index)
-
-
