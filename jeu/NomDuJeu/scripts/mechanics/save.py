@@ -11,7 +11,13 @@ from datetime import datetime
 
 parentFolder = "saves"
 
-listOfClassFolders = {"factions":factions.index,"factions":factions.index,"lois":lois.index,"provinces":provinces.index,"ressources":ressources.index,"utopies":utopies.index}
+listOfClassFolders = {
+    "factions": factions.index,
+    "lois": lois.index,
+    "provinces": provinces.index,
+    "ressources": ressources.index,
+    "utopies": utopies.index,
+}
 
 def appendToFile(file,appendMessage):
 

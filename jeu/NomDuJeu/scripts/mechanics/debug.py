@@ -13,40 +13,34 @@ log = False
 def logStart():
 
     if log:
-
+        
         display = "\n\n######################################################\n########## = [" + str(datetime.now()) + "] = ##########\n#####################################################"
-
-        f = open(files.index["log.txt"], "a")
-
-        f.write(display)
-
-        f.close()
+        
+        with open(files.index["log.txt"], "a") as f:
+            f.write(display)
 
 def afficher(display):
     
     if debug:
-
-        print(display)
-
+    
+        print("\033[0;37m",display,"\033[0;37m")
+    
     if log:
-
-        f = open(files.index["log.txt"], "a")
-
-        f.write(display)
-
-        f.close()
+        
+        with open(files.index["log.txt"], "a") as f:
+            f.write(display)
 
 ### START ###
 
 def afficherFactions():
     
     
-    print("  F\u0332a\u0332c\u0332t\u0332i\u0332o\u0332n\u0332s\u0332:\u0332")
+    display = "  F\u0332a\u0332c\u0332t\u0332i\u0332o\u0332n\u0332s\u0332:\u0332"
 
     display = ""
 
     for key in factions.index:
-        display = display + "   - " + factions.index[key].nom +": "+ str(factions.index[key].utopie.nom) + ", " + str(len(factions.index[key].membres)) + " membres \n"
+        display = f"{display}   - {factions.index[key].nom}: {str(factions.index[key].utopie.nom)}, {len(factions.index[key].membres)} membres \n"
 
     afficher(display)
 
@@ -56,7 +50,7 @@ def afficherPersonnages():
 
     for key in factions.index:
         for i in range(len(factions.index[key].membres)):
-            display = display + "   - [" + factions.index[key].nom +"] "+ factions.index[key].membres[i].nom + ", " + str(factions.index[key].membres[i].influence) + " d'influence \n"
+            display = f"{display}   - [{factions.index[key].nom}] {factions.index[key].membres[i].nom}, {str(factions.index[key].membres[i].influence)} d'influence \n"
 
     afficher(display)
 
@@ -65,7 +59,7 @@ def afficherProvinces():
     display = "  P\u0332r\u0332o\u0332v\u0332i\u0332n\u0332c\u0332e\u0332s\u0332:\u0332\n"
 
     for key in provinces.index:
-        display = display + "   - " + provinces.index[key].nom +" ["+ provinces.index[key].faction.nom + "]\n"
+        display = f"{display}   - {provinces.index[key].nom} [{provinces.index[key].faction.nom}]\n"
 
     afficher(display)
 
@@ -75,7 +69,7 @@ def afficherComtes():
 
     for key in provinces.index:
         for element in provinces.index[key].comtes:
-            display = display + "   - "+ provinces.index[key].comtes[element].nom + " de " + provinces.index[key].nom + ": " + str(provinces.index[key].comtes[element].population) + " habitants \n"
+            display = f"{display}   - {provinces.index[key].comtes[element].nom} de {provinces.index[key].nom}: {str(provinces.index[key].comtes[element].population)} habitants \n"
 
     afficher(display)
 

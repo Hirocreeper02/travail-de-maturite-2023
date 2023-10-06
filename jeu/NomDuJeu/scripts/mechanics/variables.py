@@ -24,8 +24,21 @@ distancePointNul = 1000
 ### LOIS ###
 facteurDeDeriveDesComtes = 1 / 10000
 
+seuilProgressionRecherche = 100
+seuilProgressionPolitique = 100
+seuilProgressionLobbying = 100
+seuilProgressionPublicite = 100
+seuilProgressionManifestations = 100
+
 ### FINANCES ###
 tauxImposition = 1
+
+### PERSONNAGES ###
+seuilAssassinat = 10
+seuilInfluenceRapprochement = 10
+seuilInfluenceCorruption = 10
+seuilArgentCorruption = 10
+
 
 ### KEYBINDS ###
 left = [pygame.K_a,pygame.K_LEFT]

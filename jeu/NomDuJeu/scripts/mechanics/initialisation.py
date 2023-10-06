@@ -6,6 +6,10 @@ import utopies
 import gouvernements
 import files
 
+import sys
+sys.path.append('scripts/engine')
+import territoire
+
 def creationPreetablies():
 
     ressources.creation()
@@ -22,7 +26,7 @@ def creation(noFactions:int, noPersonnages:int, noProvinces:int, noComtes:int):
 
     factions.creation(noFactions,noPersonnages)
 
-    provinces.creation(noProvinces,noComtes)
+    territoire.creation(noProvinces,noComtes)
     
 
 

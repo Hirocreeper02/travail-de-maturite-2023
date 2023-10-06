@@ -1,380 +1,309 @@
-import pygame
-import math
+import tkinter as tk
+from PIL import Image,ImageTk,ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
+
+
+import labGen
 import territoire
-import random
 
-resolution = (1280,800)
+rootWidth,rootHeight = 1000,600
 
-tileSize = 64
-buttonSize = 64
+root = tk.Tk()
+root.title("Utopia")
+root.geometry(f"{rootWidth}x{rootHeight}")
+root.configure(bg="yellow")
 
-buttons = {}
-dictionnaireFonctionsBoutons = {}
+################################################################################################
+######################### ELEMENT DEFINTITION ##################################################
+################################################################################################
 
-renderWindow = None
+### MAP CANVAS ###
 
-#################### INITIALISATION ####################
+mapImagePos = [0,0]
 
-#pygame.init()
+mapCanvas = tk.Canvas(root,width=rootWidth-100,height=rootHeight-50)
+mapCanvas.place(x=rootWidth//2-((rootWidth-100)//2), y=rootHeight//2-((rootHeight-10)//2))
 
-def Setup():
+mapImage = Image.open("scripts/engine/temp_img/labyrintheMap.png")
+mapImage = ImageTk.PhotoImage(mapImage)
+mapImageId = mapCanvas.create_image(mapImagePos[0],mapImagePos[1],image=mapImage,anchor=tk.NW)
+# mapCanvas.mapImage = mapImage
 
-    pygame.init()
+frontierImage = Image.open("scripts/engine/temp_img/frontieresMap.png")
+frontierImage = ImageTk.PhotoImage(frontierImage)
+frontierImageId = mapCanvas.create_image(mapImagePos[0],mapImagePos[1],image=frontierImage,anchor=tk.NW)
+# mapCanvas.frontierImage = frontierImage
 
-    global display
-    global horloge
-    global textfont
-    global mouse
 
-    display = pygame.display.set_mode(resolution) # Display fenêtre
-    horloge = pygame.time.Clock()
-    textfont = pygame.font.SysFont("Corbel",35)
-    mouse = pygame.mouse.get_pos()
+### SIDE BUTTONS ###
 
-Setup()
+buttonFrame = tk.Frame(root)
 
-# IMAGE #
+buttonPolitique = tk.Button(buttonFrame,command=lambda:windowInteraction())
+buttonPersonnages = tk.Button(buttonFrame,command=lambda:windowInteraction())
+buttonFaction = tk.Button(buttonFrame,command=lambda:windowInteraction())
+buttonEconomie = tk.Button(buttonFrame,command=lambda:windowInteraction())
+buttonUtopie = tk.Button(buttonFrame,command=lambda:windowInteraction())
 
-def createImage(path,dimensions):
+def showFrameButton():
+    buttonFrame.pack(side=tk.LEFT)
+    buttonPolitique.pack(side=tk.TOP,padx=0,pady=20)
+    buttonPersonnages.pack(side=tk.TOP,padx=0,pady=20)
+    buttonFaction.pack(side=tk.TOP,padx=0,pady=20)
+    buttonEconomie.pack(side=tk.TOP,padx=0,pady=20)
+    buttonUtopie.pack(side=tk.TOP,padx=0,pady=20)
 
-    image = pygame.image.load(path)
-    image = pygame.transform.scale(image, (dimensions[0],dimensions[1]))
+showFrameButton()
 
+
+### MENU ###
+
+boutonMenu = tk.Button(root,text="Menu",command=lambda:menuInteraction())
+boutonMenu.pack(side=tk.TOP)
+
+menuFrame = tk.Frame(root)
+
+newGameButton = tk.Button(menuFrame,text="New Game",command=lambda:newGame())
+settingsButton = tk.Button(menuFrame,text="Settings",command=lambda:None)
+quitButton = tk.Button(menuFrame,text="Quit Game",command=lambda:quit())
+
+def showFrameMenu():
+    menuFrame.pack(side=tk.TOP)
+    newGameButton.pack()
+    settingsButton.pack()
+    quitButton.pack()
+
+
+### WINDOW ###
+
+window = tk.Frame(root,width=1000,height=1000,)
+
+windowExitButton = tk.Button(window,text="X",command=lambda:closeWindow())
+windowTitle = tk.Label(window, text="New Window")
+windowInfos = tk.Label(window, text="Displayed Text \n Does it accept new lines?")
+
+def showFrameWindow():
+    window.place(x=rootWidth//2,y=rootHeight//2)
+    windowExitButton.pack(anchor=tk.W,padx=0,pady=0)
+    windowTitle.pack(padx=30,pady=0)
+    windowInfos.pack(padx=0,pady=10)
+
+
+### INFO BAR ###
+
+infoFrame = tk.Frame(root)
+
+infoLabel1 = tk.Label(infoFrame,text="hi")
+
+def showFrameInfo():
+    infoFrame.pack(side=tk.RIGHT)
+    infoLabel1.pack(side=tk.TOP,padx=0,pady=0)
+
+showFrameInfo()
+
+### CHECKBOXES ###
+
+checkTerritory = tk.IntVar(value=1)
+checkRessources = tk.IntVar(value=0)
+
+showTerritory = True
+showRessources = True
+
+checkBoxFrame = tk.Frame(root)
+checkBoxFrame.pack(side="right", anchor="se")
+
+checkboxTerritory = tk.Checkbutton(checkBoxFrame, text="Territory", variable=checkTerritory, command=lambda:toggle_image_visibility(frontierImageId))
+checkboxTerritory.pack()
+
+mapCanvas.itemconfig(frontierImageId, state="normal")
+
+checkboxRessources = tk.Checkbutton(checkBoxFrame, text="Ressources", variable=checkRessources, command=lambda:toggle_image_visibility(frontierImageId))
+checkboxRessources.pack()
+
+def toggle_image_visibility(imageId):
+    current_state = mapCanvas.itemcget(imageId, "state")
+    if current_state == "normal":
+        mapCanvas.itemconfig(imageId, state="hidden")
+    else:
+        mapCanvas.itemconfig(imageId, state="normal")
+
+
+    
+
+    
+
+################################################################################################
+######################### FUNCTIONS ############################################################
+################################################################################################
+
+### NEW GAME ###
+
+def newGame():
+
+    print("New game sequence initiated")
+
+    labGen.createNewLabyrinthe()
+    territoire.creation(5,30)
+
+    global mapImage
+    global mapImageId
+    global frontierImage
+    global frontierImageId
+    global mapImagePos
+
+    mapImagePos = [0,0]
+    
+    mapImage = Image.open("scripts/engine/temp_img/labyrintheMap.png")
+    mapImage = ImageTk.PhotoImage(mapImage)
+    mapImageId = mapCanvas.create_image(mapImagePos[0],mapImagePos[1],image=mapImage,anchor=tk.NW)
+    
+    frontierImage = Image.open("scripts/engine/temp_img/frontieresMap.png")
+    frontierImage = ImageTk.PhotoImage(frontierImage)
+    frontierImageId = mapCanvas.create_image(mapImagePos[0],mapImagePos[1],image=frontierImage,anchor=tk.NW)
+
+    print("Well, with real success this time")
+
+### MAP CLICK ###
+
+def map_click(event):
+    x, y = event.x, event.y
+    # You can add logic to execute a function based on the clicked location (x, y)
+    print(f"Clicked on map at ({x}, {y})")
+
+
+### WINDOW INTERACTIONS ###
+
+windowOpened = False
+menuOpened = False
+
+def closeWindow():
+    global windowOpened
+    windowOpened = False
+    
+    window.place_forget()
+
+def openWindow():
+    global windowOpened
+    windowOpened = True
+    
+    showFrameWindow()
+
+def windowInteraction():
+    global windowOpened
+    
+    if windowOpened:
+        closeWindow()
+    else:
+        openWindow()
+
+
+### MENU INTERACTIONS ###
+
+def menuInteraction():
+    global menuOpened
+    
+    if menuOpened:
+        menuFrame.pack_forget()
+        menuOpened = False
+    else:
+        showFrameMenu()
+        menuOpened = True
+
+
+### MOVEMENT & ZOOM ###
+
+moveSpeed = 1
+
+def moveMap(moveVector:tuple):
+    global mapImagePos
+    
+    mapImagePos[0], mapImagePos[1] = mapImagePos[0] + moveVector[0], mapImagePos[1] + moveVector[1]
+    
+    mapCanvas.coords(mapImageId, mapImagePos[0], mapImagePos[1])
+    mapCanvas.coords(frontierImageId, mapImagePos[0], mapImagePos[1])
+
+def setMapZoom(value:str):
+    global moveSpeed
+    global frontierImage
+    global mapImage
+    global frontierImageId
+    global mapImageId
+    
+    value = int(value)
+    moveSpeed = value
+    
+    mapImage = setImageZoom("scripts/engine/temp_img/labyrintheMap.png", value)
+    mapImageId = mapCanvas.create_image(mapImagePos[0],mapImagePos[1],image=mapImage,anchor=tk.NW)
+    # mapCanvas.mapImage = mapImage   
+    
+    frontierImage = setImageZoom("scripts/engine/temp_img/frontieresMap.png", value)
+    frontierImageId = mapCanvas.create_image(mapImagePos[0],mapImagePos[1],image=frontierImage,anchor=tk.NW)
+    # mapCanvas.frontierImage = frontierImage
+
+def setImageZoom(inputImage:str, zoom):
+    """By Chat-GPT"""
+    global mapImagePos
+
+    mapImagePos = mapImagePos * zoom
+    moveMap((0,0))
+    
+    image = Image.open(inputImage)
+    image = image.resize(
+        (zoom * image.width, zoom * image.height), Image.BOX
+    )
+    image = ImageTk.PhotoImage(image)
     return image
 
-windowBackground = createImage("assets/graphic/interface/window_background.png", [resolution[0] - 50, resolution[1] - 50])
 
-grassTile = createImage("assets/graphic/tiles/grass_tile.png", (tileSize,tileSize))
-mountainTile = createImage("assets/graphic/tiles/mountain_tile.png", (tileSize,tileSize))
-waterTile = createImage("assets/graphic/tiles/water_tile.png", (tileSize,tileSize))
+### KEYBOARD INPUTS GESTION ###
 
-buttons["politics"] = {"released":createImage("assets/graphic/buttons/politics_released.png", (buttonSize,buttonSize)),"pressed":createImage("assets/graphic/buttons/politics_pressed.png",(buttonSize,buttonSize))}
-buttons["character"] = {"released":createImage("assets/graphic/buttons/character_released.png", (buttonSize,buttonSize)),"pressed":createImage("assets/graphic/buttons/character_pressed.png",(buttonSize,buttonSize))}
-buttons["faction"] = {"released":createImage("assets/graphic/buttons/faction_released.png", (buttonSize,buttonSize)),"pressed":createImage("assets/graphic/buttons/faction_pressed.png",(buttonSize,buttonSize))}
-buttons["economy"] = {"released":createImage("assets/graphic/buttons/economy_released.png", (buttonSize,buttonSize)),"pressed":createImage("assets/graphic/buttons/economy_pressed.png",(buttonSize,buttonSize))}
-buttons["utopie"] = {"released":createImage("assets/graphic/buttons/utopie_released.png", (buttonSize,buttonSize)),"pressed":createImage("assets/graphic/buttons/utopie_pressed.png",(buttonSize,buttonSize))}
+def handle_key_w(event):
 
-# MAP CREATION #
+    moveMap((0,10*moveSpeed))
 
-territoire.divisionTerritoire()
-mappa = pygame.Surface((len(territoire.terrain[0])*tileSize,len(territoire.terrain)*tileSize)) 
-
-
-#################### DEFINITIONS ####################
-
-# CLASS DEFINITIONS #
-
-class PlayerController:
-    """Objet gérant la souris et ses actions"""
-
-    def __init__(self):
-        
-        self.image = pygame.Surface((32,32)).fill((255,0,0))
-        self.rect = pygame.Rect((284,284),(32,32))
-        self.mapPos = (0,0)
-        self.moveBox = (10,10,resolution[0]-10,resolution[1]-10) # Cadre de l'écran
-
-    def move(self) -> None:
-        """Fonction traitant de la souris et de l'écran"""
-
-        mx,my = self.mapPos
-
-        if playerCursor.rect.x <= self.moveBox[0]:
-            self.rect.x += 8
-            mx += 8
-        elif playerCursor.rect.x >= self.moveBox[2]-32:
-            self.rect.x -= 8
-            mx -= 8
-        if playerCursor.rect.y <= self.moveBox[1]:
-            self.rect.y += 8
-            my += 8
-        elif playerCursor.rect.y >= self.moveBox[3]-32:
-            self.rect.y -= 8
-            my -= 8
-
-        self.rect.x,self.rect.y = mouse
-        self.mapPos = (mx,my)
-
-    def render(self,display:object) -> None:
-        """Affichage du curseur"""
-
-        display.blit(self.image(self.rect.x-16,self.rect.y-16))
-
-class Button:
-    """Objet pouvant être cliqué et qui effectue une action donnée"""
-
-    def __init__(self,dimensions:tuple,position:tuple,text:str,fonction:str,parametresFonction:list = [],isRender:bool = True,imageReleased:object = None, imagePressed:object = None):
-        
-        if imageReleased != None and imagePressed != None:
-
-            self.image = [imageReleased,imagePressed]
-
-        else:
-
-            self.image = [pygame.Surface(dimensions),pygame.Surface(dimensions)]
-            self.image[0].fill((30,30,30))
-            self.image[1].fill((20,20,20))        
-
-        self.dimensions = dimensions
-        self.position = position
-        self.text = text
-        self.isRender = isRender
-
-        self.fonction = fonction
-        self.parametresFonction = parametresFonction
-
-    def action(self) -> None:
-        """Action performée par la pression du bouton"""
-
-        dictionnaireFonctionsBoutons[self.fonction](self.parametresFonction)
-
-    def render(self,display:object) -> None:
-        """Affichage du bouton"""
-
-        ax,ay = pygame.mouse.get_pos()
-
-        if (self.position[0] <= ax <= (self.position[0] + self.dimensions[0])) and (self.position[1] <= ay <= self.position[1] + self.dimensions[1]):
-
-            display.blit(self.image[1],(self.position[0],self.position[1]))
-
-        else:
-
-            display.blit(self.image[0],(self.position[0],self.position[1]))
-
-class Window:
-    """Objet affichant une fenêtre donnant diverses informations sur l'écran de jeu"""
-
-    def __init__(self,nom:str):
-        
-        self.nom = nom
-        self.text = ""
-
-    def render(self,display:object) -> None:
-        """Affichage de la fenêtre"""
-
-        display.blit(windowBackground,(25,25))
-        windowExitButton.isRender = True
-
-        textBox = textfont.render(self.text, True, (0,0,0))
-        textRect = textBox.get_rect()
-        textRect.center = (resolution[0] // 2, resolution[1] // 2)
-
-        display.blit(textBox, textRect)
-
-# CLASS DECLARATION #
-
-playerCursor = PlayerController()
-
-windowExitButton = Button((buttonSize,buttonSize),(80,80),"X",False)
-politicsButton = Button((buttonSize,buttonSize),(10,10),"politicsButton","openCloseWindow","POLITIQUE",True,buttons["politics"]["released"],buttons["politics"]["pressed"])
-characterButton = Button((buttonSize,buttonSize),(10,110),"characterButton","openCloseWindow","PERSONNAGES",True,buttons["character"]["released"],buttons["character"]["pressed"])
-factionButton = Button((buttonSize,buttonSize),(10,210),"factionButton","openCloseWindow","FACTIONS",True,buttons["faction"]["released"],buttons["faction"]["pressed"])
-economyButton = Button((buttonSize,buttonSize),(10,310),"economyButton","openCloseWindow","ECONOMIE",True,buttons["economy"]["released"],buttons["economy"]["pressed"])
-utopieButton = Button((buttonSize,buttonSize),(10,410),"utopieButton","openCloseWindow","UTOPIE",True,buttons["utopie"]["released"],buttons["utopie"]["pressed"])
-
-buttonIndex = {"windowExitButton":windowExitButton,"politicsButton":politicsButton,"characterButton":characterButton,"factionButton":factionButton,"economyButton":economyButton,"utopieButton":utopieButton}
-
-mainWindow = Window("mainWindow")
-leftInfoWindow = Window("leftInfoWindow")
-rightInfoWindow = Window("leftInfoWindo")
-
-windowIndex = {"mainWindow":mainWindow}
-
-# BUTTON FUNCTION DEFINITION #
-
-def openCloseWindow(windowText:str = None):
-    """Inverse l'état de la fenêtre (Ouvert -> Fermé ou Fermé -> Ouvert)"""
-
-    global renderWindow
-
-    if windowText:
-
-        openWindow(windowText)
-
-        print("OPEN WINDOW")
-
-    else:
-
-        renderWindow = None
-
-        print("CLOSE WINDOW")
-
-dictionnaireFonctionsBoutons = {"openCloseWindow":openCloseWindow}
-
-# MINOR FUNCTION DEFINITION #
-
-def openWindow(info:object):
-    """Affiche la fenêtre et y ajoute le texte donné"""
-
-    global renderWindow
-
-    renderWindow = mainWindow
-
-    mainWindow.text = info
-
-def displayTerrain(terrain:list):
-    """Affiche le terrain et les territoires"""
-
-    x,y = 0,0
-
-   # TERRAIN # 
-
-    for row in terrain:
-        for tile in row:
-            if tile in "-":
-                mappa.blit(grassTile,(x,y))
-            elif tile in "A":
-                mappa.blit(mountainTile,(x,y))
-            elif tile in "~":
-                mappa.blit(waterTile,(x,y))
-            else:
-                pygame.draw.rect(mappa,(255,128,122),((x,y),(tileSize,tileSize)))
-            x += tileSize
-        y += tileSize
-        x = 0
-
-    # TERRITOIRE #
-
-    borders = territoire.borders
-
-    colorDict = {}
-
-    colors = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","1","2","3","4","5","6","7","8","9","0"]
-
-    borderTileSize = [math.ceil(len(terrain[0]) * tileSize / len(borders[0])),math.ceil(len(terrain) * tileSize / len(borders))]
-
-    if len(terrain[0]) > len(terrain):
-
-        borderTileSize[0] = borderTileSize[0] * math.ceil(len(terrain[0]) / len(terrain))
-
-    else: 
-
-        borderTileSize[1] = borderTileSize[1] * math.ceil(len(terrain) / len(terrain[0]))
- 
-    for i in range(len(colors)):
-
-        colorDict[colors[i]] = (random.randint(0,255),random.randint(0,255),random.randint(0,255))
-
-    x,y = 0,0
-
-    for row in borders:
-        for tile in row:
-            if tile not in "-":
-
-                pygame.draw.rect(mappa,colorDict[tile],((x,y),(borderTileSize[0],borderTileSize[1])))
-
-            x += borderTileSize[0]
-        y += borderTileSize[1]
-        x = 0
-
-def getTerrainCoordinates():
-    """Donne la position sur le terrain en fonction de la position de la souris sur l'écran"""
+def handle_key_a(event):
     
-    ax,ay = pygame.mouse.get_pos()
-    bx,by = playerCursor.mapPos
+    moveMap((10*moveSpeed,0))
 
-    x = math.ceil((ax - bx) / tileSize) - 1
-    y = math.ceil((ay - by) / tileSize) - 1
-
-    return([x,y])
-
-def getTerritoireCoordinates():
-    """Donne la position sur le territoire en fonction de la position de la souris"""
-
-    ax,ay = pygame.mouse.get_pos()
-    bx,by = playerCursor.mapPos
-
-    x = math.ceil((ax - bx) / 16) - 1
-    y = math.ceil((ay - by) / 8) - 1
-
-    return([x,y])
-
-def buttonCheck():
-    """Vérifie si le click concerne un bouton ou non"""
-
-    global renderWindow
-
-    ax,ay = pygame.mouse.get_pos()
-
-    for key in buttonIndex:
-
-        button = buttonIndex[key]
+def handle_key_s(event):
     
-        if button.position[0] <= ax <= (button.position[0] + button.dimensions[0]) and button.position[1] <= ay <= (button.position[1] + button.dimensions[1]):
-            
-            return button
+    moveMap((0,-10*moveSpeed))
 
-    return False
-
-# MAJOR FUNCTION DEFINITION #
-
-def Render():
-    """Activation de toutes les fonction Render() des objets"""
+def handle_key_d(event):
     
-    for key in buttonIndex:
-        
-        buttonIndex[key].render(display)
-
-    for key in windowIndex:
-
-        windowIndex[key].render(display)
-
-def Click():
-    """Instructions lors d'un click sur l'écran"""
-
-    coordinates = getTerrainCoordinates()
-    tCoordinates = getTerritoireCoordinates()
-
-    button = buttonCheck()
-
-    if button:
-
-        button.action()
-
-    elif 0 <= tCoordinates[0] <= len(territoire.territoire[0]) and 0 <= tCoordinates[1] <= len(territoire.territoire):
-
-        tile = territoire.territoire[tCoordinates[1]][tCoordinates[0]]
-
-        openWindow(tile)
-
-        print(tile)
+    moveMap((-10*moveSpeed,0))
 
 
-terrain = territoire.terrain
-displayTerrain(terrain)
+################################################################################################
+######################### INPUTS ###############################################################
+################################################################################################
 
-text = textfont.render('quit' , True , (255,255,255))
-pygame.display.set_caption('TM - NomDuJeu')
+### ZOOM SLIDER ###
 
-def Run():
-    """Boucle principale du moteur et du jeu en entier"""
-    
-    Setup()
+slider = tk.Scale(root, from_=1.0, to=5.0, orient="horizontal", command=setMapZoom,length=200)
+slider.set(1.0)
+slider.pack(side="bottom")
 
 
-    RUNNING = True
+### MOVEMENT ###
 
-    while RUNNING:
+root.bind("<w>", handle_key_w)
+root.bind("<a>", handle_key_a)
+root.bind("<s>", handle_key_s)
+root.bind("<d>", handle_key_d)
 
-        horloge.tick(60)
 
-        mouse = pygame.mouse.get_pos()
+### MENU ###
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                RUNNING = False
+root.bind("<Escape>", menuInteraction)
 
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                Click()
-        
-        playerCursor.move()
-    
-        display.fill((0,0,0))
-        display.blit(mappa,playerCursor.mapPos)
-    
-        Render()
-    
-        pygame.display.flip()
 
-    pygame.quit()
+### MAP ###
 
+mapCanvas.bind("<Button-1>", map_click)
+
+
+################################################################################################
+################################################################################################
+
+root.mainloop()

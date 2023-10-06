@@ -1,3 +1,4 @@
+import provinces
 
 index = {}
 liste = []
@@ -16,6 +17,13 @@ class Ressource():
 
     def __repr__(self):
         return f"{self.nom}"
+
+class RouteCommerciale():
+    
+    def __init__(self,depart,arrivee):
+        
+        self.depart = depart
+        self.arrivee = arrivee
 
 def creation():
 
@@ -47,3 +55,31 @@ def creationDeterminee(infos):
         index[nom] = Ressource(nom,type,valeur,prerequis)
 
     print(index)
+
+def chercherRouteCommerciale(comte:object):
+    """Utilise l'algorithme de Djikstra pour trouver le chemin le plus court entre le demandeur et le producteur"""
+    
+    pass
+
+def calculerRoutesCommerciales():
+    """Vérifie tous les comtés et leur production et redessine les routes commerciales"""
+    
+    comtesCelibataires = []
+    
+    for province in provinces.index.values():
+        
+        for comte in province.indexComtes.values():
+            
+            for comteAutres in provinces.indexComtes.values():
+                
+                if comte.prerequis == comteAutres.ressource:
+                    
+                    print("Route Interne")
+                
+                else:
+                    
+                    comtesCelibataires.append(comte)
+    
+    for comte in comtesCelibataires:
+        
+        chercherRouteCommerciale(comte)

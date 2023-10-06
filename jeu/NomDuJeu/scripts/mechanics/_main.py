@@ -35,13 +35,12 @@ def propositionLoi(loi:object):
         return False   
 
 def testLoi(nombreEssais:int):
-    test = 0
 
-    for i in range(nombreEssais):
-
-        if(propositionLoi(lois.index["Ordre et Progrès"])):
-            test += 1
-
+    test = sum(
+        1
+        for _ in range(nombreEssais)
+        if (propositionLoi(lois.index["Ordre et Progrès"]))
+    )
     print(test / (nombreEssais / 100) , "%")
 
 #propositionLoi(lois.index["Ordre et Progrès"])

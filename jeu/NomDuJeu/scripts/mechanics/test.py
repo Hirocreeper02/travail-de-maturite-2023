@@ -123,28 +123,6 @@ typeHints = get_type_hints(Person)
 
 """
 
-def fun():
-    a=10
-    b=3.14
-    s="Hello"
-    x=True
-    
-    print(dir())
-
-fun()
-
-import ressources
-
-def getObjects(library):
-
-    dirList = dir(library)
-
-    for i in range(len(dirList)):
-
-        print(dirList[i],":",type(dirList[i]))
-
-
-getObjects(ressources)
 
 
 # returns {'name': <class 'str'>, 'age': <class 'int'>}
@@ -157,3 +135,46 @@ getObjects(ressources)
 #print("\033[1;36m ========================================\033[0;37m")
 
 #https://iq.opengenus.org/perlin-noise/
+
+"""
+
+argent = 6
+population = 8
+
+class bouton():
+
+    def __init__(self,variable):
+
+        self.variable = variable
+
+
+boutonX = bouton(argent)
+boutonY = bouton(population)
+
+argent = 9
+population = 16
+
+print(boutonX.variable)
+
+"""
+
+
+global hello
+hello = ["hello"]
+
+class classX:
+
+    def __init__(self,var:list):
+
+        self.var = var
+
+    def __repr__(self) -> str:
+        return f"{self.var}"
+
+objectX = classX(hello)
+
+print(objectX)
+
+hello = ["Hi"]
+
+print(objectX)
