@@ -19,4 +19,10 @@ class Utopie():
 
 def creation():
 
-    liste.append(Utopie("Technocratie",[[100,None],[20,None],[12,None]],[lois.index["Ordre et Progrès"]],[50,-50,-100,-50]))
+    liste.append(Utopie(
+        nom = "Technocratie",
+        structure = [[100,None],[20,None],[12,None]],
+        lois = [lois.index["Ordre et Progrès"]],
+        positionnement = [50,-50,-100,-50]
+        )
+    )

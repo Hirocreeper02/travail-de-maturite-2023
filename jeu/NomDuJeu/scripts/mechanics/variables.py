@@ -38,10 +38,3 @@ seuilAssassinat = 10
 seuilInfluenceRapprochement = 10
 seuilInfluenceCorruption = 10
 seuilArgentCorruption = 10
-
-
-### KEYBINDS ###
-left = [pygame.K_a,pygame.K_LEFT]
-right = [pygame.K_d,pygame.K_RIGHT]
-up = [pygame.K_w,pygame.K_UP]
-down = [pygame.K_s,pygame.K_DOWN]

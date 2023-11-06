@@ -83,13 +83,6 @@ class Loi():
         
         progressionIndex[self.progression](influence)
 
-
-class ArbreLois():
-    
-    def __init__(self, masterTree):
-        
-        pass
-
 def creation():
     
     liste.append(Loi("Ordre et Progrès",None,[[0,0,0],[5,10,-1],[3,5,-4]],-50,3))

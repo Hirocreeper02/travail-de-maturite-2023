@@ -1,6 +1,7 @@
 import fonctions
 import factions
 import files
+import ressources
 
 index = {}
 indexComtes = {}
@@ -67,7 +68,7 @@ def creation(noProvinces:int,noComtes:int):
             if nom != index.keys():
                 break
         
-        print("\033[0;31m",factions.index,"<- in provinces.py","\033[0;37m")
+        # print("\033[0;31m",factions.index,"<- in provinces.py","\033[0;37m")
         
         faction = fonctions.elementAleatoire(factions.index)
         
@@ -81,7 +82,7 @@ def creation(noProvinces:int,noComtes:int):
             if nomComte not in indexComtes.keys():
                 break
         
-        ressource = None
+        ressource = fonctions.elementAleatoire(ressources.index)
         
         population = 100
         
@@ -91,4 +92,4 @@ def creation(noProvinces:int,noComtes:int):
         
         indexComtes[nomComte] = Comte(nomComte,faction,ressource,population,classes,positionnement)
     
-    print("indexComtes:",indexComtes)
+    # print("indexComtes:",indexComtes)

@@ -1,5 +1,3 @@
-import provinces
-
 index = {}
 liste = []
 
@@ -26,18 +24,23 @@ class RouteCommerciale():
         self.arrivee = arrivee
 
 def creation():
-
-    liste.append(Ressource("Fer","Primaire",1))
-    liste.append(Ressource("Ficelle","Primaire",1))
-    liste.append(Ressource("Diamant","Primaire",1))
-    liste.append(Ressource("Or","Primaire",1))
-    liste.append(Ressource("Nourriture","Primaire",1))
-
-    liste.append(Ressource("Armes","Secondaire",1,liste[0]))
-    liste.append(Ressource("Laine","Secondaire",1,liste[1]))
-    liste.append(Ressource("Bijouterie","Luxe",1,liste[2]))
-
-    liste.append(Ressource("Habits","Secondaire",1,liste[6]))
+    
+    global index
+    
+    index["Minerai"] = Ressource("Minerai","Primaire",10)
+    index["Ficelle"] = Ressource("Ficelle","Primaire",5)
+    index["Diamant"] = Ressource("Diamant","Primaire",50)
+    index["Or"] = Ressource("Or","Primaire",90)
+    index["Nourriture"] = Ressource("Nourriture","Primaire",5)
+    
+    index["Lingot"] = Ressource("Lingot","Secondaire",40,index["Minerai"])
+    index["Tissu"] = Ressource("Tissu","Secondaire",15,index["Ficelle"])
+    index["Bijoux"] = Ressource("Bijoux","Luxe",90,index["Diamant"])
+    
+    index["Armes"] = Ressource("Armes","Secondaire",80,index["Lingot"])
+    index["Habits"] = Ressource("Habits","Secondaire",45,index["Tissu"])
+    
+    print("\033[0;32m",index,"<- in ressources.py","\033[0;37m")
 
 def creationDeterminee(infos):
     
@@ -61,25 +64,37 @@ def chercherRouteCommerciale(comte:object):
     
     pass
 
-def calculerRoutesCommerciales():
-    """Vérifie tous les comtés et leur production et redessine les routes commerciales"""
+# def calculerRoutesCommerciales():
+#     """Vérifie tous les comtés et leur production et redessine les routes commerciales"""
     
-    comtesCelibataires = []
+#     comtesCelibataires = []
     
-    for province in provinces.index.values():
+#     for province in provinces.index.values():
         
-        for comte in province.indexComtes.values():
+#         for comte in province.indexComtes.values():
             
-            for comteAutres in provinces.indexComtes.values():
+#             for comteAutres in provinces.indexComtes.values():
                 
-                if comte.prerequis == comteAutres.ressource:
+#                 if comte.prerequis == comteAutres.ressource:
                     
-                    print("Route Interne")
+#                     print("Route Interne")
                 
-                else:
+#                 else:
                     
-                    comtesCelibataires.append(comte)
+#                     comtesCelibataires.append(comte)
     
-    for comte in comtesCelibataires:
+#     for comte in comtesCelibataires:
         
-        chercherRouteCommerciale(comte)
+#         chercherRouteCommerciale(comte)
+
+
+# IRON ORE: https://www.rawpixel.com/search?page=1&similar=6791486&sort=curated&topic_group=_topics 
+# STRING: https://www.google.com/search?q=string&tbm=isch&hl=fr&tbs=il:cl&client=firefox-b-d&sa=X&ved=0CAAQ1vwEahcKEwjQmY3U_-qBAxUAAAAAHQAAAAAQCA&biw=1440&bih=721#imgrc=-aosRoQVtUrlsM 
+# DIAMANT: https://pixabay.com/no/photos/edelsten-diamant-brytning-glass-423428/ 
+# OR ORE: https://ici.radio-canada.ca/nouvelle/1763411/mines-or-cochrane-hill-beaver-dam-fifteen-mile-stream-nouvelle-ecosse 
+# NOURRITURE: https://pxhere.com/fr/photo/1347902
+# ARMES: https://pxhere.com/fr/photo/450960
+# FER: https://www.facebook.com/174020329413636/photos/a.319526851529649/1878145289001123/?type=3&theater
+# LAINE: https://www.istockphoto.com/fr/search/2/image?phrase=morceau+de+tissu
+# BIJOUX: https://www.couleurcameleon.ch/cours-1/cours-de-bijoux-de-visage/
+# HABITS: https://www.etsy.com/ch/listing/1318180331/herrenhemd-mit-schnurung-xv-jahrhundert

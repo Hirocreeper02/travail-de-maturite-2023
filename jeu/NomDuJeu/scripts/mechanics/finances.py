@@ -14,4 +14,3 @@ def collecterImpots():
                     comt.faction.finances += comt.population * comt.classes[strate] * variables.tauxImposition
 
     debug.afficherFinances()
-                

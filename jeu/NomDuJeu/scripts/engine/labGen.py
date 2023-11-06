@@ -188,6 +188,35 @@ def labyrintheToTerrain(labyrinthe:Labyrinthe):
                     
                     labyrinthe.image.putpixel((x,y),(112,112,112))
 
+    # for x in range(1,labyrinthe.image.width-2):
+    #     for y in range(1,labyrinthe.image.height-2):
+
+    #             majority = 0
+
+    #             for neighbourX in range(x-1,x+2):
+    #                 for neighbourY in range(y-1,y+2):
+
+    #                     if labyrinthe.image.getpixel((neighbourX,neighbourY)) == (255,255,255):
+
+    #                         majority += 1
+                
+    #             if majority > 2:
+                    
+    #                 labyrinthe.image.putpixel((x,y),(255,255,255))
+                
+    #             # else:
+                    
+    #             #     labyrinthe.image.putpixel((x,y),(112,112,112))
+
+
+
+#####
+##+++
+##+##
+
+# 6/8
+
+
 ### CREATE LABYRINTHE ###
 
 def createNewLabyrinthe():
